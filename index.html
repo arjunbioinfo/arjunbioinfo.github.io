@@ -369,6 +369,7 @@
     background:var(--bg);
     font-family:'Space Grotesk';font-weight:700;font-size:30px;color:var(--accent);
     border:1.5px solid var(--border);
+    overflow:hidden;
   }
   .avatar::before{
     content:'';position:absolute;inset:-4px;border-radius:50%;z-index:-1;
@@ -379,6 +380,10 @@
     content:'';position:absolute;inset:0;border-radius:50%;background:var(--bg);
   }
   .avatar span{position:relative;z-index:3;}
+  .avatar img{
+    position:relative;z-index:3;width:100%;height:100%;border-radius:50%;
+    object-fit:cover;object-position:center 18%;
+  }
   @keyframes spin{to{transform:rotate(360deg);}}
 
   /* UPDATES TICKER */
@@ -524,7 +529,7 @@
 <header class="hero">
   <canvas id="particles"></canvas>
   <div class="hero-glow"></div>
-  <div class="avatar"><span>MT</span></div>
+  <div class="avatar"><img src="profile.jpg" alt="Mallikarjuna Thippana" onerror="this.style.display='none'"><span>MT</span></div>
   <div class="eyebrow"><span class="pulse"></span> Open to Bioinformatics Scientist / Computational Biology roles</div>
   <h1>Mallikarjuna <span>Thippana</span>, PhD</h1>
   <p class="role">Computational Biologist — <b>Single-Cell &amp; Spatial Multi-Omics</b> · Cancer Epigenomics · Statistical ML for Biological Data</p>
@@ -532,6 +537,7 @@
   <div class="hero-actions">
     <a href="#publications" class="btn btn-primary">View Publications</a>
     <a href="mailto:arjun.ins@gmail.com" class="btn btn-ghost">Contact Me</a>
+    <a href="CV_Thippana_2026.pdf" class="btn btn-ghost" download>Download CV</a>
   </div>
   <div class="hero-meta">
     <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Solna, Sweden</span>
@@ -802,7 +808,7 @@
         <a class="pub-link" href="https://doi.org/10.1101/2024.10.18.619023" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
       </div>
     </div>
-    <p class="pub-more">Full list on <a href="https://scholar.google.com/scholar?q=Mallikarjuna+Thippana" target="_blank" rel="noopener">Google Scholar →</a></p>
+    <p class="pub-more">Full list on <a href="https://scholar.google.com/citations?user=NpLUj68AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar →</a></p>
   </div>
 </section>
 
@@ -955,7 +961,8 @@
     <div class="contact-links">
       <a class="contact-pill" href="mailto:arjun.ins@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> arjun.ins@gmail.com</a>
       <a class="contact-pill" href="tel:+46729252578"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2z"/></svg> +46 729 252 578</a>
-      <a class="contact-pill" href="https://scholar.google.com/scholar?q=Mallikarjuna+Thippana" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg> Google Scholar</a>
+      <a class="contact-pill" href="https://scholar.google.com/citations?user=NpLUj68AAAAJ&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg> Google Scholar</a>
+      <a class="contact-pill" href="https://www.linkedin.com/in/mallikarjun-thippana/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
     </div>
   </div>
 </section>
