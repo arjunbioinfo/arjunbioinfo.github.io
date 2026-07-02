@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mallikarjuna Thippana, PhD — Computational Biologist</title>
+<meta name="description" content="Portfolio of Mallikarjuna Thippana, PhD — Computational Biologist specializing in single-cell &amp; spatial multi-omics, cancer epigenomics, and statistical ML for biological data.">
+<meta property="og:title" content="Mallikarjuna Thippana, PhD — Computational Biologist">
+<meta property="og:description" content="Single-cell & spatial multi-omics · Cancer epigenomics · Statistical ML for biological data. Postdoctoral researcher at Karolinska Institutet.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080b10'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='700' fill='%234fd6c7' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080b10;
+    --bg-alt:#0d1219;
+    --card:#111823;
+    --card-hover:#141d2b;
+    --border:#1e2836;
+    --text:#e8edf3;
+    --text-dim:#8b98a9;
+    --text-faint:#5a6675;
+    --accent:#4fd6c7;
+    --accent-soft:rgba(79,214,199,0.12);
+    --accent2:#f2b134;
+    --accent2-soft:rgba(242,177,52,0.12);
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.mono{font-family:'Space Grotesk',-apple-system,sans-serif;}
+  .mono-code{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--accent);color:#04110f;}
+
+  .bg-grid{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    width:100%;height:100%;display:block;
+    mask-image:radial-gradient(ellipse 90% 70% at 50% 15%, #000 30%, transparent 85%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 15%, #000 30%, transparent 85%);
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 6vw;
+    background:rgba(8,11,16,0.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    transition:padding .3s ease;
+  }
+  .logo{font-weight:700;font-size:19px;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;}
+  .logo .dot{color:var(--accent);}
+  .nav-links{display:flex;gap:34px;list-style:none;}
+  .nav-links a{
+    font-size:14px;color:var(--text-dim);font-weight:500;letter-spacing:.2px;
+    position:relative;padding:4px 0;transition:color .25s ease;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:-3px;width:0;height:1.5px;background:var(--accent);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-size:13px;font-weight:600;padding:9px 18px;border-radius:8px;
+    border:1px solid var(--accent);color:var(--accent);
+    transition:all .25s ease;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--accent);color:#04120f;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;}
+  .burger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:120px 6vw 80px;overflow:hidden;
+  }
+  #particles{position:absolute;inset:0;z-index:0;opacity:0.55;}
+  .hero-glow{
+    position:absolute;width:640px;height:640px;border-radius:50%;
+    background:radial-gradient(circle, rgba(79,214,199,0.16), transparent 70%);
+    top:-180px;left:50%;transform:translateX(-50%);z-index:0;pointer-events:none;
+  }
+  .eyebrow{
+    position:relative;z-index:2;
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);
+    border:1px solid rgba(79,214,199,0.3);
+    padding:7px 16px;border-radius:100px;margin-bottom:28px;
+  }
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 rgba(79,214,199,.6);animation:pulse 2s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(79,214,199,.55);}
+    70%{box-shadow:0 0 0 10px rgba(79,214,199,0);}
+    100%{box-shadow:0 0 0 0 rgba(79,214,199,0);}
+  }
+  .hero h1{
+    position:relative;z-index:2;
+    font-size:clamp(38px,7vw,80px);font-weight:700;line-height:1.03;letter-spacing:-1.5px;
+    margin-bottom:20px;
+  }
+  .hero h1 span{
+    background:linear-gradient(120deg,var(--accent) 10%,#7ee8dc 50%, var(--accent2) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .role{
+    position:relative;z-index:2;
+    font-size:clamp(15px,2.4vw,20px);color:var(--text-dim);font-weight:500;
+    max-width:720px;margin-bottom:14px;
+  }
+  .hero .role b{color:var(--text);font-weight:600;}
+  .hero p.summary{
+    position:relative;z-index:2;
+    max-width:660px;color:var(--text-faint);font-size:15px;margin-bottom:38px;
+  }
+  .hero-actions{position:relative;z-index:2;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:46px;}
+  .btn{
+    padding:13px 26px;border-radius:9px;font-weight:600;font-size:14.5px;
+    display:inline-flex;align-items:center;gap:8px;transition:all .25s ease;cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:#04120f;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(79,214,199,0.5);}
+  .btn-ghost{border:1px solid var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+
+  .hero-meta{
+    position:relative;z-index:2;
+    display:flex;gap:28px;flex-wrap:wrap;justify-content:center;
+    font-size:13.5px;color:var(--text-dim);
+  }
+  .hero-meta span{display:flex;align-items:center;gap:7px;}
+  .hero-meta svg{width:15px;height:15px;stroke:var(--accent);flex-shrink:0;}
+
+  .scroll-cue{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    color:var(--text-faint);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* SECTION shared */
+  section{position:relative;z-index:1;padding:110px 6vw;}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .section-tag{
+    font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);
+    margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .section-tag::before{content:'';width:26px;height:2px;background:var(--accent);display:inline-block;}
+  .section-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-0.8px;margin-bottom:18px;}
+  .section-lead{color:var(--text-dim);font-size:15.5px;max-width:660px;margin-bottom:56px;}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start;}
+  .about-grid p{color:var(--text-dim);font-size:15.5px;margin-bottom:18px;}
+  .about-grid p b{color:var(--text);font-weight:600;}
+  .stat-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px 24px;margin-bottom:14px;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .stat-card:hover{border-color:var(--accent);transform:translateX(4px);}
+  .stat-card .num{font-family:'Space Grotesk';font-size:30px;font-weight:700;color:var(--accent);}
+  .stat-card .label{font-size:13px;color:var(--text-dim);text-align:right;max-width:170px;}
+
+  /* FOCUS CARDS */
+  .focus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .focus-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:28px 22px;transition:all .3s ease;position:relative;overflow:hidden;
+  }
+  .focus-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+  }
+  .focus-card:hover{transform:translateY(-6px);border-color:transparent;background:var(--card-hover);
+    box-shadow:0 20px 40px -20px rgba(0,0,0,.6);}
+  .focus-card:hover::before{transform:scaleX(1);}
+  .focus-icon{
+    width:44px;height:44px;border-radius:10px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .focus-icon svg{width:22px;height:22px;stroke:var(--accent);}
+  .focus-card h3{font-size:17px;margin-bottom:10px;font-weight:600;}
+  .focus-card p{font-size:13.8px;color:var(--text-dim);}
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative;padding-left:36px;}
+  .timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;
+    background:linear-gradient(var(--accent), var(--border) 90%);}
+  .t-item{position:relative;padding-bottom:52px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-dot{position:absolute;left:-36px;top:4px;width:13px;height:13px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);}
+  .t-item.current .t-dot{background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);}
+  .t-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;}
+  .t-role{font-size:19px;font-weight:600;font-family:'Space Grotesk';}
+  .t-date{font-size:12.5px;color:var(--accent);font-weight:600;letter-spacing:.4px;
+    background:var(--accent-soft);padding:4px 12px;border-radius:100px;white-space:nowrap;}
+  .t-org{font-size:14px;color:var(--text-dim);margin-bottom:14px;font-style:italic;}
+  .t-proj{margin-bottom:16px;}
+  .t-proj h4{font-size:13.5px;color:var(--accent2);font-weight:600;margin-bottom:6px;letter-spacing:.2px;}
+  .t-item ul{list-style:none;}
+  .t-item li{
+    font-size:14.3px;color:var(--text-dim);padding-left:18px;position:relative;margin-bottom:7px;
+  }
+  .t-item li::before{content:'▸';position:absolute;left:0;color:var(--accent);}
+
+  /* PUBLICATIONS */
+  .pub-tabs{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap;}
+  .pub-tab{
+    padding:8px 18px;border-radius:100px;border:1px solid var(--border);font-size:13px;
+    font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .2s ease;
+  }
+  .pub-tab.active,.pub-tab:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
+  .pub-list{display:flex;flex-direction:column;gap:12px;}
+  .pub-item{
+    display:grid;grid-template-columns:44px 1fr auto;gap:20px;align-items:center;
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:20px 24px;transition:all .25s ease;
+  }
+  .pub-item:hover{border-color:var(--accent);transform:translateX(4px);}
+  .pub-num{font-family:'JetBrains Mono';color:var(--text-faint);font-size:15px;font-weight:500;}
+  .pub-title{font-size:14.8px;font-weight:600;margin-bottom:6px;line-height:1.4;}
+  .pub-meta{font-size:12.8px;color:var(--text-dim);display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .pub-journal{color:var(--accent);font-style:italic;}
+  .pub-if{
+    background:var(--accent2-soft);color:var(--accent2);font-size:11px;font-weight:700;
+    padding:2px 8px;border-radius:5px;font-family:'JetBrains Mono';
+  }
+  .pub-badge{
+    font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    padding:3px 9px;border-radius:5px;border:1px solid var(--border);color:var(--text-faint);
+  }
+  .pub-link{
+    width:38px;height:38px;border-radius:9px;border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s ease;
+  }
+  .pub-link:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .pub-link svg{width:16px;height:16px;stroke:var(--text-dim);}
+  .pub-link:hover svg{stroke:var(--accent);}
+  .pub-more{text-align:center;margin-top:24px;font-size:13.5px;color:var(--text-faint);}
+  .pub-more a{color:var(--accent);font-weight:600;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .skill-cat{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 26px;
+    transition:border-color .25s ease;
+  }
+  .skill-cat:hover{border-color:var(--accent);}
+  .skill-cat h4{
+    font-size:12.5px;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);
+    margin-bottom:14px;font-weight:700;
+  }
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:12.8px;padding:6px 12px;border-radius:7px;background:var(--bg-alt);
+    border:1px solid var(--border);color:var(--text-dim);font-family:'JetBrains Mono';
+    transition:all .2s ease;
+  }
+  .chip:hover{color:var(--accent);border-color:var(--accent);}
+
+  /* AWARDS + EDUCATION */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .award-row{
+    display:flex;justify-content:space-between;gap:16px;padding:16px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .award-row:last-child{border-bottom:none;}
+  .award-date{font-size:12px;color:var(--accent);font-family:'JetBrains Mono';white-space:nowrap;padding-top:2px;}
+  .award-text b{font-size:14.5px;font-weight:600;display:block;margin-bottom:2px;}
+  .award-text span{font-size:13px;color:var(--text-dim);}
+  .edu-item{margin-bottom:26px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-item .deg{font-size:16.5px;font-weight:600;font-family:'Space Grotesk';margin-bottom:4px;}
+  .edu-item .school{font-size:13.5px;color:var(--accent);margin-bottom:6px;}
+  .edu-item .thesis{font-size:13px;color:var(--text-dim);font-style:italic;}
+  .edu-item .yrs{font-size:12px;color:var(--text-faint);font-family:'JetBrains Mono';}
+
+  /* CONTACT / FOOTER */
+  .contact-cta{
+    text-align:center;padding:100px 6vw;position:relative;
+    border-top:1px solid var(--border);
+  }
+  .contact-cta h2{font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-1px;margin-bottom:20px;}
+  .contact-cta h2 span{color:var(--accent);}
+  .contact-cta p{color:var(--text-dim);max-width:520px;margin:0 auto 40px;font-size:15.5px;}
+  .contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .contact-pill{
+    display:flex;align-items:center;gap:10px;padding:13px 22px;border-radius:100px;
+    border:1px solid var(--border);font-size:14px;font-weight:500;transition:all .25s ease;
+  }
+  .contact-pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+  .contact-pill svg{width:16px;height:16px;stroke:currentColor;}
+  footer{
+    padding:28px 6vw;display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--border);font-size:12.5px;color:var(--text-faint);flex-wrap:wrap;gap:10px;
+  }
+  footer a{color:var(--text-faint);transition:color .2s ease;}
+  footer a:hover{color:var(--accent);}
+
+  @media (max-width:860px){
+    .nav-links,.nav-cta,.print-btn{display:none;}
+    .burger{display:flex;}
+    .about-grid,.two-col{grid-template-columns:1fr;gap:36px;}
+    .focus-grid{grid-template-columns:repeat(2,1fr);}
+    .skills-grid{grid-template-columns:1fr;}
+    .pub-item{grid-template-columns:32px 1fr;}
+    .pub-link{display:none;}
+    section{padding:80px 6vw;}
+  }
+  @media (max-width:520px){
+    .focus-grid{grid-template-columns:1fr;}
+  }
+
+  .mobile-menu{
+    position:fixed;inset:0;background:var(--bg);z-index:99;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+    transform:translateY(-100%);transition:transform .35s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu a{font-size:22px;font-weight:600;font-family:'Space Grotesk';color:var(--text);}
+
+  /* PROGRESS BAR */
+  #progress{
+    position:fixed;top:0;left:0;height:2.5px;width:0%;z-index:200;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    box-shadow:0 0 8px rgba(79,214,199,.6);transition:width .1s linear;
+  }
+
+  /* BACK TO TOP */
+  #toTop{
+    position:fixed;bottom:28px;right:28px;width:46px;height:46px;border-radius:50%;
+    background:var(--card);border:1px solid var(--border);z-index:90;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:all .3s ease;
+  }
+  #toTop.show{opacity:1;visibility:visible;transform:translateY(0);}
+  #toTop:hover{border-color:var(--accent);background:var(--card-hover);}
+  #toTop svg{width:18px;height:18px;stroke:var(--accent);}
+
+  /* AVATAR */
+  .avatar{
+    position:relative;z-index:2;width:96px;height:96px;border-radius:50%;
+    margin-bottom:26px;display:flex;align-items:center;justify-content:center;
+    background:var(--bg);
+    font-family:'Space Grotesk';font-weight:700;font-size:30px;color:var(--accent);
+    border:1.5px solid var(--border);
+  }
+  .avatar::before{
+    content:'';position:absolute;inset:-4px;border-radius:50%;z-index:-1;
+    background:conic-gradient(from 0deg, var(--accent), var(--accent2), var(--accent));
+    animation:spin 6s linear infinite;
+  }
+  .avatar::after{
+    content:'';position:absolute;inset:0;border-radius:50%;background:var(--bg);
+  }
+  .avatar span{position:relative;z-index:3;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* UPDATES TICKER */
+  .updates{
+    position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:20px 6vw;display:flex;align-items:center;gap:22px;overflow:hidden;
+  }
+  .updates .u-label{
+    font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);
+    display:flex;align-items:center;gap:8px;flex-shrink:0;
+  }
+  .updates .u-label .pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 rgba(79,214,199,.6);animation:pulse 2s infinite;}
+  .u-track{display:flex;gap:44px;overflow-x:auto;scrollbar-width:none;}
+  .u-track::-webkit-scrollbar{display:none;}
+  .u-item{display:flex;align-items:baseline;gap:10px;white-space:nowrap;font-size:13.5px;color:var(--text-dim);}
+  .u-item b{color:var(--accent2);font-family:'JetBrains Mono';font-weight:600;font-size:12px;}
+
+  /* CONFERENCES & MEMBERSHIPS */
+  .conf-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;}
+  .conf-card{
+    display:flex;gap:16px;background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;
+    transition:all .25s ease;
+  }
+  .conf-card:hover{border-color:var(--accent);transform:translateX(4px);}
+  .conf-icon{
+    width:38px;height:38px;border-radius:9px;background:var(--accent-soft);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .conf-icon svg{width:18px;height:18px;stroke:var(--accent);}
+  .conf-name{font-size:15px;font-weight:600;font-family:'Space Grotesk';margin-bottom:3px;}
+  .conf-meta{font-size:12.8px;color:var(--text-dim);display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .conf-meta .sep{color:var(--text-faint);}
+  .mem-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:20px 22px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;
+    gap:14px;transition:all .25s ease;
+  }
+  .mem-card:hover{border-color:var(--accent2);transform:translateX(4px);}
+  .mem-name{font-size:14.5px;font-weight:600;}
+  .mem-since{font-size:11.5px;color:var(--accent2);font-family:'JetBrains Mono';white-space:nowrap;
+    background:var(--accent2-soft);padding:4px 10px;border-radius:100px;}
+
+  /* AURORA BACKGROUND */
+  .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .aurora .blob{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;}
+  .aurora .b1{
+    width:560px;height:560px;top:-160px;left:-120px;opacity:0.28;
+    background:radial-gradient(circle, var(--accent), transparent 70%);
+    animation:drift1 48s ease-in-out infinite alternate;
+  }
+  .aurora .b2{
+    width:480px;height:480px;bottom:-160px;right:-100px;opacity:0.22;
+    background:radial-gradient(circle, var(--accent2), transparent 70%);
+    animation:drift2 60s ease-in-out infinite alternate;
+  }
+  .aurora .b3{
+    width:400px;height:400px;top:38%;left:58%;opacity:0.18;
+    background:radial-gradient(circle, var(--accent), transparent 70%);
+    animation:drift3 66s ease-in-out infinite alternate;
+  }
+  @keyframes drift1{0%{transform:translate(0,0) scale(1);}100%{transform:translate(140px,200px) scale(1.15);}}
+  @keyframes drift2{0%{transform:translate(0,0) scale(1);}100%{transform:translate(-160px,-120px) scale(1.1);}}
+  @keyframes drift3{0%{transform:translate(0,0) scale(1);}100%{transform:translate(-120px,150px) scale(0.9);}}
+
+  /* PRINT BUTTON */
+  .print-btn{
+    width:38px;height:38px;border-radius:8px;border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    background:transparent;transition:all .25s ease;flex-shrink:0;
+  }
+  .print-btn:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .print-btn svg{width:16px;height:16px;stroke:var(--text-dim);}
+  .print-btn:hover svg{stroke:var(--accent);}
+
+  /* PRINT / PDF VIEW */
+  @media print{
+    :root{
+      --bg:#ffffff;--bg-alt:#f7f7f7;--card:#ffffff;--card-hover:#ffffff;
+      --border:#d5d5d5;--text:#111111;--text-dim:#333333;--text-faint:#555555;
+      --accent:#0a7a6c;--accent-soft:rgba(10,122,108,0.08);
+      --accent2:#9a6300;--accent2-soft:rgba(154,99,0,0.08);
+    }
+    @page{margin:1.4cm;}
+    body{background:#fff;}
+    nav,.mobile-menu,#progress,#toTop,.scroll-cue,.aurora,#dnaBg,#particles,
+    .hero-glow,.updates,.burger,.btn-ghost,.hero-actions,.pub-tabs,.pub-link{
+      display:none !important;
+    }
+    *{animation:none !important;transition:none !important;box-shadow:none !important;}
+    .hero{min-height:auto;padding:10px 0 30px;}
+    .avatar{margin-bottom:14px;}
+    section{padding:22px 0;page-break-inside:avoid;}
+    .wrap{max-width:100%;}
+    .focus-grid,.skills-grid{grid-template-columns:repeat(2,1fr);}
+    .stat-card,.focus-card,.pub-item,.skill-cat,.conf-card,.mem-card,.t-item,
+    .award-row,.edu-item,.contact-pill{border:1px solid var(--border);}
+    .pub-item{grid-template-columns:32px 1fr;}
+    a{color:var(--accent);text-decoration:underline;}
+    .contact-cta{padding:22px 0;}
+    footer{border-top:1px solid var(--border);}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="aurora"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<canvas id="dnaBg" class="bg-grid"></canvas>
+
+<nav>
+  <a href="#" class="logo">MT<span class="dot">.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#conferences">Conferences</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="print-btn" onclick="window.print()" aria-label="Print or save as PDF" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    </button>
+    <a href="mailto:arjun.ins@gmail.com" class="nav-cta">Get in touch</a>
+  </div>
+  <div class="burger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="#about" onclick="document.querySelector('.mobile-menu').classList.remove('open')">About</a>
+  <a href="#experience" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Experience</a>
+  <a href="#publications" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Publications</a>
+  <a href="#skills" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Skills</a>
+  <a href="#awards" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Awards</a>
+  <a href="#conferences" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Conferences</a>
+  <a href="mailto:arjun.ins@gmail.com" style="color:var(--accent)">Contact</a>
+</div>
+
+<header class="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-glow"></div>
+  <div class="avatar"><span>MT</span></div>
+  <div class="eyebrow"><span class="pulse"></span> Open to Bioinformatics Scientist / Computational Biology roles</div>
+  <h1>Mallikarjuna <span>Thippana</span>, PhD</h1>
+  <p class="role">Computational Biologist — <b>Single-Cell &amp; Spatial Multi-Omics</b> · Cancer Epigenomics · Statistical ML for Biological Data</p>
+  <p class="summary">7+ years turning large-scale genomic, transcriptomic, and epigenomic datasets into reproducible pipelines and biological insight. Currently a postdoctoral researcher at Karolinska Institutet, working at the intersection of chromatin biology, single-cell genomics, and machine learning.</p>
+  <div class="hero-actions">
+    <a href="#publications" class="btn btn-primary">View Publications</a>
+    <a href="mailto:arjun.ins@gmail.com" class="btn btn-ghost">Contact Me</a>
+  </div>
+  <div class="hero-meta">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Solna, Sweden</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2z"/></svg> +46 729 252 578</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> arjun.ins@gmail.com</span>
+  </div>
+  <a href="#about" class="scroll-cue">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="updates">
+  <div class="u-label"><span class="pulse"></span> Latest</div>
+  <div class="u-track">
+    <span class="u-item"><b>2026</b> Co-authored CTCF/MYC study under review at Nucleic Acids Research (IF ~23.5)</span>
+    <span class="u-item"><b>2025</b> New first-author preprint &amp; journal paper on lung squamous cell carcinoma</span>
+    <span class="u-item"><b>Dec 2024</b> Joined Karolinska Institutet as Postdoctoral Researcher, Dept. of Oncology-Pathology</span>
+    <span class="u-item"><b>2024</b> Completed PhD in Computational Systems Biology, University of Hyderabad</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="section-tag">Profile</div>
+    <h2 class="section-title">Bridging wet-lab biology<br>and computational rigor</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a <b>PhD-level computational biologist</b> with a specialization in Computational Systems Biology and 7+ years analysing large-scale multi-omics datasets in cancer genomics and, more recently, single-cell and spatial biology.</p>
+        <p>Across postdoctoral and doctoral research, I've built <b>end-to-end reproducible pipelines</b> — from raw NGS reads to publication-ready figures — spanning bulk and single-cell RNA-seq, scATAC-seq, GRO-seq, WGS/WES variant calling, and spatial transcriptomics, deployed on Linux HPC infrastructure with Nextflow and Snakemake.</p>
+        <p>At <b>Karolinska Institutet</b> I work on 3D genome organisation, chromatin remodelling in metastasis, and patient stratification using single-nucleus RNA-seq — applying statistical and machine learning methods to high-dimensional biological data and translating results for clinicians and molecular biologists alike.</p>
+      </div>
+      <div>
+        <div class="stat-card"><span class="num">7+</span><span class="label">Years in computational biology &amp; genomics</span></div>
+        <div class="stat-card"><span class="num">11</span><span class="label">Peer-reviewed publications + preprints</span></div>
+        <div class="stat-card"><span class="num">6</span><span class="label">Competitive fellowships &amp; travel awards</span></div>
+        <div class="stat-card"><span class="num">5+</span><span class="label">Cross-institutional research collaborations</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="focus" style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap reveal">
+    <div class="section-tag">Research Focus</div>
+    <h2 class="section-title">What I work on</h2>
+    <p class="section-lead">Four interconnected areas spanning single-cell genomics, chromatin biology, and applied machine learning.</p>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.5 7.5 15.5 16.5M15.5 7.5 8.5 16.5"/></svg></div>
+        <h3>Single-Cell &amp; Spatial Multi-Omics</h3>
+        <p>Full scRNA-seq, snRNA-seq, scATAC-seq, multiome, and 10x Visium spatial workflows — from QC and doublet removal to clustering, annotation, and deconvolution.</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Cancer Epigenomics</h3>
+        <p>GRO-seq, ATAC-seq and 3D genome integration to map enhancers, CTCF-driven regulatory loops, and chromatin remodelling in metastatic progression.</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-6 3 4 5-8"/></svg></div>
+        <h3>Statistical ML for Biology</h3>
+        <p>Supervised &amp; unsupervised learning, dimensionality reduction, latent variable models, and gene regulatory network inference on high-dimensional biological data.</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></div>
+        <h3>Reproducible Pipelines</h3>
+        <p>Version-controlled, HPC-deployed Nextflow &amp; Snakemake workflows engineered for reproducibility, automation, and cross-team reuse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="section-tag">Experience</div>
+    <h2 class="section-title">Research Experience</h2>
+    <p class="section-lead">From cancer network biology to single-cell multi-omics in a clinical epigenomics group.</p>
+
+    <div class="timeline">
+      <div class="t-item current">
+        <div class="t-dot"></div>
+        <div class="t-head">
+          <span class="t-role">Postdoctoral Researcher — Computational Cancer Epigenomics</span>
+          <span class="t-date">Dec 2024 – Present</span>
+        </div>
+        <div class="t-org">Department of Oncology-Pathology, Karolinska Institutet, Solna, Sweden — PI: Dr Anita Göndör</div>
+
+        <div class="t-proj">
+          <h4>3D genome organisation &amp; transcriptional regulation in cancer</h4>
+          <ul>
+            <li>Integrate GRO-seq, ATAC-seq &amp; RNA-seq to characterise chromatin accessibility and transcriptional dynamics; built reproducible HPC pipelines for multi-omics processing</li>
+            <li>Co-author on a study (Nucleic Acids Research, 2026, under review, IF ~23.5) resolving how a distal CTCF-binding site controls MYC expression plasticity via a negative feed-forward loop</li>
+          </ul>
+        </div>
+        <div class="t-proj">
+          <h4>p60AmotL2, mechanotransduction &amp; chromatin remodelling in metastasis</h4>
+          <ul>
+            <li>Integrative ATAC-seq &amp; multi-omics analysis of chromatin accessibility changes driving invasive, metastatic cancer phenotypes</li>
+            <li>Applied statistical inference &amp; dimensionality reduction to identify differential regulatory elements and TF activity across cancer cell states</li>
+          </ul>
+        </div>
+        <div class="t-proj">
+          <h4>snRNA-seq — human endometrium in PCOS</h4>
+          <ul>
+            <li>Full snRNA-seq workflow: ambient RNA removal, doublet detection, Harmony multi-donor integration, Leiden clustering, cell-type annotation</li>
+            <li>Patient-level stratification: PCOS vs. control differential expression, CTCF binding-site enrichment near TSS, cohort variability analysis</li>
+          </ul>
+        </div>
+        <div class="t-proj">
+          <h4>Transcriptomic dissection of HIV–cancer pathway crosstalk</h4>
+          <ul>
+            <li>Bulk RNA-seq of HIV-positive patient cohorts to identify candidate genes and map crosstalk with oncogenic pathways</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-head">
+          <span class="t-role">IoE Postdoctoral Fellow — Computational Drug Discovery</span>
+          <span class="t-date">Jul – Nov 2024</span>
+        </div>
+        <div class="t-org">Computational Chemistry/Bioinformatics Group, University of Hyderabad, India</div>
+        <ul>
+          <li>Applied structural bioinformatics, cheminformatics, molecular docking, pharmacophore modelling &amp; ADMET profiling to identify novel Tyrosine Kinase inhibitor candidates</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-head">
+          <span class="t-role">PhD Researcher — Cancer Multi-Omics &amp; Network Biology</span>
+          <span class="t-date">2018 – 2024</span>
+        </div>
+        <div class="t-org">Dept. of Biotechnology &amp; Bioinformatics, University of Hyderabad — ICMR-funded</div>
+        <ul>
+          <li>Integrated transcriptomics, genomics &amp; protein interaction networks (TCGA/GEO) to identify driver genes in cervical squamous cell carcinoma</li>
+          <li>Developed two novel ML-informed gene-prioritisation algorithms — fractal/chaos game representation and moment-of-inertia tensor analysis — both published in peer-reviewed journals</li>
+          <li>Five first/co-author publications; presentations at ISMB/ECCB 2023, GIW/ISCB-Asia 2022, SACB 2022</li>
+          <li>Mentored 5 postgraduate students and served as Graduate Teaching Assistant</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-head">
+          <span class="t-role">Junior Research Fellow — Disease Target Discovery</span>
+          <span class="t-date">2018 – 2019</span>
+        </div>
+        <div class="t-org">CRRao AIMSCS &amp; School of Physics, University of Hyderabad — DST-SERB-funded</div>
+        <ul>
+          <li>Integrative network &amp; systems biology to prioritise disease drug targets; applied statistical models to graph-structured biological data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications" style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap reveal">
+    <div class="section-tag">Publications</div>
+    <h2 class="section-title">9 Peer-Reviewed Papers + 2 Preprints</h2>
+    <p class="section-lead">Spanning cancer genomics, network biology, and computational method development.</p>
+
+    <div class="pub-tabs" role="tablist" aria-label="Filter publications">
+      <button class="pub-tab active" data-filter="all" type="button">All (11)</button>
+      <button class="pub-tab" data-filter="journal" type="button">Journal Articles (9)</button>
+      <button class="pub-tab" data-filter="preprint" type="button">Preprints (2)</button>
+    </div>
+
+    <div class="pub-list" id="pubList">
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">01</span>
+        <div>
+          <div class="pub-title">A distal CTCF-binding site drives MYC expression plasticity in a negative feed-forward loop</div>
+          <div class="pub-meta">Gao C, ... Thippana M, et al., Göndör A. <span class="pub-journal">Nucleic Acids Research</span> · 2026 <span class="pub-if">IF ~23.5</span> <span class="pub-badge">Under Review</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.64898/2026.01.28.702300" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">02</span>
+        <div>
+          <div class="pub-title">Unraveling the gender-specific molecular landscape of lung squamous cell carcinoma progression</div>
+          <div class="pub-meta">Dwivedi A, Thippana M, Khammampalli S, Cholleti SN, Vindal V. <span class="pub-journal">J Biomolecular Structure &amp; Dynamics</span> · 2025 <span class="pub-if">IF 3.4</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1080/07391102.2025.2460069" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">03</span>
+        <div>
+          <div class="pub-title">Prioritizing cervical cancer candidate genes using chaos game and fractal-based time series approach</div>
+          <div class="pub-meta">Mallikarjuna T, Thummadi NB, Vindal V, et al. <span class="pub-journal">Theory in Biosciences</span> · 2024 <span class="pub-if">IF 1.8</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1007/s12064-024-00418-3" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">04</span>
+        <div>
+          <div class="pub-title">Identification of key molecular players and associated pathways in cervical squamous cell carcinoma progression through network analysis</div>
+          <div class="pub-meta">Thippana M, Dwivedi A, Das A, Palanisamy M, Vindal V. <span class="pub-journal">Proteins</span> · 2023 <span class="pub-if">IF 3.8</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1002/prot.26502" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">05</span>
+        <div>
+          <div class="pub-title">Fused toes homolog, a potential molecular regulator of human papillomavirus type 16 E6 and E7 oncoproteins in cervical cancer</div>
+          <div class="pub-meta">D.S.P, Chaturvedi PK, Krishnamoorthy D, Seo YS, Thippana M, et al. <span class="pub-journal">PLOS ONE</span> · 2022 <span class="pub-if">IF 3.7</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1371/journal.pone.0266532" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">06</span>
+        <div>
+          <div class="pub-title">Prioritizing the candidate genes related to cervical cancer using the moment of inertia tensor</div>
+          <div class="pub-meta">Thummadi NB, Thippana M, Vindal V, P.M. <span class="pub-journal">Proteins</span> · 2022 <span class="pub-if">IF 3.8</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1002/prot.26226" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">07</span>
+        <div>
+          <div class="pub-title">Synthesis of pyrazolo[3,4-d]pyrimidin-4(5H)-ones tethered to 1,2,3-triazoles and their evaluation as potential anticancer agents</div>
+          <div class="pub-meta">Allam M, Bhavani AKD, Mudiraj A, Ranjan N, Thippana M, Babu PP. <span class="pub-journal">European Journal of Medicinal Chemistry</span> · 2018 <span class="pub-if">IF 6.7</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1016/j.ejmech.2018.06.055" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">08</span>
+        <div>
+          <div class="pub-title">Total Synthesis of Penicinoline E, Marinamide and Methyl marinamide and its antimalarial activity</div>
+          <div class="pub-meta">Naveen B, Ommi NB, Mudiraj A, Mallikarjuna T, Babu PP, Nagarajan R. <span class="pub-journal">ChemistrySelect</span> · 2017 <span class="pub-if">IF 2.1</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1002/slct.201700242" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-num">09</span>
+        <div>
+          <div class="pub-title">A Homology Based Model and Virtual Screening of Inhibitors for Geranylgeranyl Transferase 1 (GGTase1)</div>
+          <div class="pub-meta">Thippanna M, et al. <span class="pub-journal">Bioinformation</span> · 2013 <span class="pub-if">IF 1.3</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.6026/97320630009973" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="preprint">
+        <span class="pub-num">10</span>
+        <div>
+          <div class="pub-title">LCLNCRdb: A Comprehensive Resource for Investigating long non-coding RNAs in Lung Cancer</div>
+          <div class="pub-meta">Dwivedi A, Zulfia SA, Thippana M, Cholleti SN, Vindal V. <span class="pub-journal">bioRxiv</span> · 2025 <span class="pub-badge">Preprint</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1101/2025.02.14.638263" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+
+      <div class="pub-item" data-type="preprint">
+        <span class="pub-num">11</span>
+        <div>
+          <div class="pub-title">Prioritization of Lung Cancer Candidate Genes using Moment of Inertia Tensor Analysis</div>
+          <div class="pub-meta">Dwivedi A, Thippana M, Manimaran P, Vindal V. <span class="pub-journal">bioRxiv</span> · 2024 <span class="pub-badge">Preprint</span></div>
+        </div>
+        <a class="pub-link" href="https://doi.org/10.1101/2024.10.18.619023" target="_blank" rel="noopener" aria-label="Open DOI"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      </div>
+    </div>
+    <p class="pub-more">Full list on <a href="https://scholar.google.com/scholar?q=Mallikarjuna+Thippana" target="_blank" rel="noopener">Google Scholar →</a></p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="section-tag">Technical Expertise</div>
+    <h2 class="section-title">Tools &amp; Technologies</h2>
+    <p class="section-lead">The computational stack behind the research above.</p>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h4>Python Ecosystem</h4>
+        <div class="chip-row">
+          <span class="chip">Scanpy</span><span class="chip">scverse</span><span class="chip">anndata</span><span class="chip">squidpy</span><span class="chip">scikit-learn</span><span class="chip">SciPy</span><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">matplotlib</span><span class="chip">seaborn</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>R Ecosystem</h4>
+        <div class="chip-row">
+          <span class="chip">Seurat</span><span class="chip">Signac</span><span class="chip">Bioconductor</span><span class="chip">DESeq2</span><span class="chip">edgeR</span><span class="chip">ggplot2</span><span class="chip">Harmony</span><span class="chip">Monocle3</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Single-Cell &amp; Spatial</h4>
+        <div class="chip-row">
+          <span class="chip">CellRanger</span><span class="chip">STARsolo</span><span class="chip">SoupX</span><span class="chip">CellBender</span><span class="chip">Scrublet</span><span class="chip">DoubletFinder</span><span class="chip">10x Visium</span><span class="chip">SpatialDE</span><span class="chip">cell2location</span><span class="chip">RCTD</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>ML &amp; Trajectory</h4>
+        <div class="chip-row">
+          <span class="chip">PCA / UMAP</span><span class="chip">Leiden / Louvain</span><span class="chip">Diffusion Maps</span><span class="chip">scVelo</span><span class="chip">SCENIC / pySCENIC</span><span class="chip">MOFA+</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Genomics &amp; Epigenomics</h4>
+        <div class="chip-row">
+          <span class="chip">GATK</span><span class="chip">Samtools</span><span class="chip">Bedtools</span><span class="chip">deepTools</span><span class="chip">MACS2</span><span class="chip">ArchR</span><span class="chip">IGV</span><span class="chip">GRO-seq</span><span class="chip">WGS/WES</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Workflow, HPC &amp; Databases</h4>
+        <div class="chip-row">
+          <span class="chip">Nextflow</span><span class="chip">Snakemake</span><span class="chip">Git</span><span class="chip">Linux HPC</span><span class="chip">Jupyter</span><span class="chip">TCGA</span><span class="chip">GEO</span><span class="chip">GTEx</span><span class="chip">Ensembl</span><span class="chip">Human Cell Atlas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards" style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap reveal">
+    <div class="section-tag">Recognition &amp; Education</div>
+    <h2 class="section-title">Awards &amp; Academic Background</h2>
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:15px;color:var(--text-dim);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Honours &amp; Awards</h3>
+        <div class="award-row"><span class="award-date">Jun 2023</span><span class="award-text"><b>DST-SERB International Travel Support</b><span>ISMB/ECCB 2023, Lyon, France</span></span></div>
+        <div class="award-row"><span class="award-date">May 2023</span><span class="award-text"><b>ISCB Travel Fellowship</b><span>ISMB/ECCB 2023, Lyon, France</span></span></div>
+        <div class="award-row"><span class="award-date">Apr 2023</span><span class="award-text"><b>NUS–Temasek Foundation Travel Grant</b><span>RNA Society Annual Meeting, Singapore</span></span></div>
+        <div class="award-row"><span class="award-date">Oct 2022</span><span class="award-text"><b>DBT-CTEP Travel Grant</b><span>SACB 2022, Woods Hole, USA</span></span></div>
+        <div class="award-row"><span class="award-date">Jun 2019</span><span class="award-text"><b>ICMR Senior Research Fellowship</b><span>Indian Council of Medical Research, Govt. of India</span></span></div>
+        <div class="award-row"><span class="award-date">2015</span><span class="award-text"><b>GATE 2015</b><span>Graduate Aptitude Test in Engineering (Biotechnology)</span></span></div>
+      </div>
+      <div>
+        <h3 style="font-size:15px;color:var(--text-dim);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Education</h3>
+        <div class="edu-item">
+          <div class="deg">PhD, Biotechnology — Computational Systems Biology</div>
+          <div class="school">University of Hyderabad, India · Advisor: Prof. Vaibhav Vindal</div>
+          <div class="thesis">"Integrative studies to explore key molecular players involved in cervical squamous cell carcinoma"</div>
+          <div class="yrs">Aug 2018 – May 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">M.Tech, Bioinformatics</div>
+          <div class="school">University of Hyderabad, India · GATE 2015 qualified</div>
+          <div class="yrs">2015 – 2017</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conferences">
+  <div class="wrap reveal">
+    <div class="section-tag">Community</div>
+    <h2 class="section-title">Conferences &amp; Memberships</h2>
+    <p class="section-lead">Presenting research internationally and staying active in the computational biology community.</p>
+    <div class="conf-grid">
+      <div>
+        <h3 style="font-size:15px;color:var(--text-dim);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Conferences Attended</h3>
+
+        <div class="conf-card">
+          <div class="conf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div>
+            <div class="conf-name">ISMB/ECCB 2023</div>
+            <div class="conf-meta"><span>Lyon, France</span><span class="sep">·</span><span>Jun 2023</span><span class="sep">·</span><span>Oral &amp; poster presentation</span></div>
+          </div>
+        </div>
+
+        <div class="conf-card">
+          <div class="conf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div>
+            <div class="conf-name">RNA Society Annual Meeting</div>
+            <div class="conf-meta"><span>Singapore</span><span class="sep">·</span><span>Apr 2023</span></div>
+          </div>
+        </div>
+
+        <div class="conf-card">
+          <div class="conf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div>
+            <div class="conf-name">SACB — Systems Approaches to Cancer Biology 2022</div>
+            <div class="conf-meta"><span>Woods Hole, USA</span><span class="sep">·</span><span>Oct 2022</span></div>
+          </div>
+        </div>
+
+        <div class="conf-card">
+          <div class="conf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div>
+            <div class="conf-name">GIW/ISCB-Asia 2022</div>
+            <div class="conf-meta"><span>2022</span><span class="sep">·</span><span>Oral &amp; poster presentation</span></div>
+          </div>
+        </div>
+
+        <p style="font-size:13px;color:var(--text-faint);margin-top:6px;">7 international conference presentations in total across the above and additional venues.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:15px;color:var(--text-dim);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Professional Memberships</h3>
+        <div class="mem-card">
+          <span class="mem-name">RNA Society</span>
+          <span class="mem-since">2024 – present</span>
+        </div>
+        <div class="mem-card">
+          <span class="mem-name">ISCB — International Society for Computational Biology</span>
+          <span class="mem-since">2022 – present</span>
+        </div>
+        <div class="mem-card">
+          <span class="mem-name">FABA</span>
+          <span class="mem-since">2022 – present</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta" id="contact">
+  <div class="wrap reveal">
+    <div class="section-tag" style="justify-content:center;">Get In Touch</div>
+    <h2>Let's talk <span>science</span>, data,<br>or opportunities.</h2>
+    <p>Open to bioinformatics scientist and computational biology roles in industry and academia — drug discovery, biomarker research, precision medicine, and single-cell genomics.</p>
+    <div class="contact-links">
+      <a class="contact-pill" href="mailto:arjun.ins@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> arjun.ins@gmail.com</a>
+      <a class="contact-pill" href="tel:+46729252578"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2z"/></svg> +46 729 252 578</a>
+      <a class="contact-pill" href="https://scholar.google.com/scholar?q=Mallikarjuna+Thippana" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg> Google Scholar</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Mallikarjuna Thippana. Built for Karolinska Institutet &amp; beyond.</span>
+  <span>Solna, Sweden · <a href="mailto:arjun.ins@gmail.com">arjun.ins@gmail.com</a></span>
+</footer>
+
+<div id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</div>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Publication filter tabs
+  const pubTabs = document.querySelectorAll('.pub-tab');
+  const pubItems = document.querySelectorAll('.pub-item');
+  pubTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      pubTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      pubItems.forEach(item => {
+        const show = filter === 'all' || item.dataset.type === filter;
+        item.style.display = show ? 'grid' : 'none';
+      });
+    });
+  });
+  // Global pointer tracking + click ripples — drives interactivity across all
+  // background canvases without blocking clicks on real page content.
+  let mouseX = -9999, mouseY = -9999;
+  let ripples = [];
+  window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+  window.addEventListener('mouseleave', () => { mouseX = -9999; mouseY = -9999; });
+  window.addEventListener('touchmove', e => {
+    if (e.touches[0]) { mouseX = e.touches[0].clientX; mouseY = e.touches[0].clientY; }
+  }, { passive: true });
+  window.addEventListener('touchend', () => { mouseX = -9999; mouseY = -9999; });
+  window.addEventListener('click', e => {
+    ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 0.45 });
+  });
+
+  // Particle network background in hero
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles;
+  function resize(){
+    W = canvas.width = canvas.parentElement.offsetWidth;
+    H = canvas.height = canvas.parentElement.offsetHeight;
+  }
+  function initParticles(){
+    const count = Math.min(70, Math.floor((W*H)/18000));
+    particles = Array.from({length: count}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.35, vy: (Math.random()-0.5)*0.35, r: Math.random()*1.6+0.6
+    }));
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    const rect = canvas.getBoundingClientRect();
+    const lmx = mouseX - rect.left, lmy = mouseY - rect.top;
+    const hasPointer = lmx > -60 && lmx < W+60 && lmy > -60 && lmy < H+60;
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (hasPointer) {
+        const dx = lmx - p.x, dy = lmy - p.y, d = Math.sqrt(dx*dx+dy*dy);
+        if (d < 140 && d > 0.01) {
+          const f = (1 - d/140) * 0.55;
+          p.x += (dx/d)*f;
+          p.y += (dy/d)*f;
+        }
+      }
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    });
+    for (let i=0;i<particles.length;i++){
+      for (let j=i+1;j<particles.length;j++){
+        const a = particles[i], b = particles[j];
+        const dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if (dist < 130){
+          ctx.strokeStyle = `rgba(79,214,199,${0.16*(1-dist/130)})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    if (hasPointer) {
+      particles.forEach(p => {
+        const dx = lmx-p.x, dy = lmy-p.y, dist = Math.sqrt(dx*dx+dy*dy);
+        if (dist < 140){
+          ctx.strokeStyle = `rgba(242,177,52,${0.3*(1-dist/140)})`;
+          ctx.lineWidth = 0.8;
+          ctx.beginPath(); ctx.moveTo(lmx,lmy); ctx.lineTo(p.x,p.y); ctx.stroke();
+        }
+      });
+      ctx.beginPath();
+      ctx.arc(lmx,lmy,3,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(242,177,52,0.75)';
+      ctx.fill();
+    }
+    particles.forEach(p => {
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(79,214,199,0.55)'; ctx.fill();
+    });
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener('resize', () => { resize(); initParticles(); });
+  resize(); initParticles(); tick();
+
+  // Site-wide computational-biology background: DNA helices + gene network + UMAP-style
+  // cluster scatter + a sequencing coverage track, all low-opacity and non-interactive.
+  const dnaCanvas = document.getElementById('dnaBg');
+  const dctx = dnaCanvas.getContext('2d');
+  let DW, DH, bioT = 0;
+  let netNodes = [], scatterClusters = [], seqTrack = [];
+
+  function seededRand(seed){
+    let s = seed % 2147483647; if (s <= 0) s += 2147483646;
+    return () => (s = s * 16807 % 2147483647) / 2147483647;
+  }
+
+  function buildBioScene(){
+    DW = dnaCanvas.width = window.innerWidth;
+    DH = dnaCanvas.height = window.innerHeight;
+
+    // Gene regulatory network: nodes drifting slowly within a central band
+    const rand = seededRand(42);
+    const nodeCount = Math.min(18, Math.floor((DW*DH)/70000));
+    netNodes = Array.from({length: nodeCount}, () => ({
+      x: DW*0.18 + rand()*DW*0.64,
+      y: DH*0.08 + rand()*DH*0.84,
+      vx: (rand()-0.5)*0.12,
+      vy: (rand()-0.5)*0.12,
+      r: 2 + rand()*1.6,
+      hue: rand() > 0.5 ? 'accent' : 'accent2'
+    }));
+
+    // UMAP-style scatter clusters tucked in a bottom-left region
+    const boxX = 40, boxY = DH - 260, boxW = 260, boxH = 220;
+    const centers = [
+      { cx: boxX+60,  cy: boxY+60,  color: '79,214,199' },
+      { cx: boxX+180, cy: boxY+90,  color: '242,177,52' },
+      { cx: boxX+110, cy: boxY+170, color: '126,232,220' }
+    ];
+    scatterClusters = [];
+    centers.forEach(c => {
+      for (let i=0;i<16;i++){
+        const ang = rand()*Math.PI*2, rad = rand()*34;
+        scatterClusters.push({
+          x: c.cx + Math.cos(ang)*rad,
+          y: c.cy + Math.sin(ang)*rad,
+          color: c.color,
+          r: 1.6 + rand()*1.6
+        });
+      }
+    });
+    // keep the scatter box inside the viewport on very short screens
+    if (boxY < DH*0.45) scatterClusters = scatterClusters.filter(p => p.y > DH*0.4);
+
+    // Sequencing coverage track: a thin pileup strip along the very top edge
+    seqTrack = [];
+    for (let x=0; x<DW; x+=9){
+      seqTrack.push({ x, h: 4 + rand()*16, teal: rand() > 0.45 });
+    }
+  }
+
+  function drawBioBg(){
+    dctx.clearRect(0,0,DW,DH);
+    const hasCursor = mouseX > -9000;
+    const parallaxX = hasCursor ? (mouseX - DW/2) * 0.015 : 0;
+    const parallaxY = hasCursor ? (mouseY - DH/2) * 0.015 : 0;
+
+    // -- DNA double helices along both edges (drift slightly with cursor parallax) --
+    const strands = [
+      { x: DW*0.07 + parallaxX*0.5, amp: 24, wl: 170, phase: 0 },
+      { x: DW*0.93 + parallaxX*0.5, amp: 24, wl: 155, phase: 3.4 }
+    ];
+    strands.forEach(s => {
+      dctx.beginPath();
+      for (let y=-20;y<=DH+20;y+=6){
+        const x = s.x + s.amp*Math.sin((y+bioT)/s.wl*Math.PI*2 + s.phase);
+        if (y===-20) dctx.moveTo(x,y); else dctx.lineTo(x,y);
+      }
+      dctx.strokeStyle = 'rgba(79,214,199,0.20)';
+      dctx.lineWidth = 1.2;
+      dctx.stroke();
+
+      dctx.beginPath();
+      for (let y=-20;y<=DH+20;y+=6){
+        const x = s.x + s.amp*Math.sin((y+bioT)/s.wl*Math.PI*2 + s.phase + Math.PI);
+        if (y===-20) dctx.moveTo(x,y); else dctx.lineTo(x,y);
+      }
+      dctx.strokeStyle = 'rgba(242,177,52,0.14)';
+      dctx.lineWidth = 1.2;
+      dctx.stroke();
+
+      for (let y=-20;y<=DH+20;y+=18){
+        const x1 = s.x + s.amp*Math.sin((y+bioT)/s.wl*Math.PI*2 + s.phase);
+        const x2 = s.x + s.amp*Math.sin((y+bioT)/s.wl*Math.PI*2 + s.phase + Math.PI);
+        dctx.beginPath();
+        dctx.moveTo(x1,y);
+        dctx.lineTo(x2,y);
+        dctx.strokeStyle = 'rgba(230,237,243,0.045)';
+        dctx.lineWidth = 1;
+        dctx.stroke();
+      }
+    });
+
+    // -- Gene regulatory network: drifting nodes + proximity edges (cursor attracts nearby nodes) --
+    netNodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (hasCursor) {
+        const dx = mouseX - n.x, dy = mouseY - n.y, d = Math.sqrt(dx*dx+dy*dy);
+        if (d < 170 && d > 0.01) {
+          const f = (1 - d/170) * 0.4;
+          n.x += (dx/d)*f;
+          n.y += (dy/d)*f;
+        }
+      }
+      if (n.x < DW*0.15 || n.x > DW*0.85) n.vx *= -1;
+      if (n.y < DH*0.05 || n.y > DH*0.95) n.vy *= -1;
+    });
+    for (let i=0;i<netNodes.length;i++){
+      for (let j=i+1;j<netNodes.length;j++){
+        const a = netNodes[i], b = netNodes[j];
+        const dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if (dist < 150){
+          dctx.strokeStyle = `rgba(79,214,199,${0.09*(1-dist/150)})`;
+          dctx.lineWidth = 0.6;
+          dctx.beginPath(); dctx.moveTo(a.x,a.y); dctx.lineTo(b.x,b.y); dctx.stroke();
+        }
+      }
+    }
+    netNodes.forEach(n => {
+      dctx.beginPath();
+      dctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+      dctx.fillStyle = n.hue === 'accent' ? 'rgba(79,214,199,0.35)' : 'rgba(242,177,52,0.30)';
+      dctx.fill();
+    });
+
+    // -- Cursor joins the network as a live node, wired to nearby genes --
+    if (hasCursor) {
+      netNodes.forEach(n => {
+        const dx = mouseX-n.x, dy = mouseY-n.y, dist = Math.sqrt(dx*dx+dy*dy);
+        if (dist < 170){
+          dctx.strokeStyle = `rgba(242,177,52,${0.24*(1-dist/170)})`;
+          dctx.lineWidth = 0.9;
+          dctx.beginPath(); dctx.moveTo(mouseX,mouseY); dctx.lineTo(n.x,n.y); dctx.stroke();
+        }
+      });
+      const cpulse = 3 + Math.sin(bioT/8)*1.2;
+      dctx.beginPath();
+      dctx.arc(mouseX, mouseY, cpulse, 0, Math.PI*2);
+      dctx.fillStyle = 'rgba(242,177,52,0.55)';
+      dctx.fill();
+      dctx.beginPath();
+      dctx.arc(mouseX, mouseY, cpulse+7, 0, Math.PI*2);
+      dctx.strokeStyle = 'rgba(242,177,52,0.28)';
+      dctx.lineWidth = 1;
+      dctx.stroke();
+    }
+
+    // -- UMAP-style cluster scatter (bottom-left, gentle parallax) --
+    const pulse = 0.75 + Math.sin(bioT/40)*0.15;
+    scatterClusters.forEach(p => {
+      dctx.beginPath();
+      dctx.arc(p.x - parallaxX*0.6, p.y - parallaxY*0.6, p.r, 0, Math.PI*2);
+      dctx.fillStyle = `rgba(${p.color},${0.3*pulse})`;
+      dctx.fill();
+    });
+
+    // -- Sequencing coverage track along the top edge --
+    seqTrack.forEach(t => {
+      dctx.fillStyle = t.teal ? 'rgba(79,214,199,0.16)' : 'rgba(242,177,52,0.13)';
+      dctx.fillRect(t.x, 0, 4, t.h);
+    });
+
+    // -- Click ripples: a "ping" radiating out from wherever you click --
+    for (let i=ripples.length-1;i>=0;i--){
+      const r = ripples[i];
+      r.r += 2.6;
+      r.alpha -= 0.012;
+      if (r.alpha <= 0){ ripples.splice(i,1); continue; }
+      dctx.beginPath();
+      dctx.arc(r.x, r.y, r.r, 0, Math.PI*2);
+      dctx.strokeStyle = `rgba(79,214,199,${r.alpha})`;
+      dctx.lineWidth = 1.4;
+      dctx.stroke();
+    }
+
+    bioT += 0.3;
+    requestAnimationFrame(drawBioBg);
+  }
+
+  window.addEventListener('resize', buildBioScene);
+  buildBioScene();
+  drawBioBg();
+
+  // Nav background on scroll
+  const navEl = document.querySelector('nav');
+  const progressEl = document.getElementById('progress');
+  const toTopEl = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    navEl.style.padding = window.scrollY > 40 ? '12px 6vw' : '18px 6vw';
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progressEl.style.width = pct + '%';
+    toTopEl.classList.toggle('show', window.scrollY > 500);
+  });
+  toTopEl.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Auto-scroll the updates ticker slowly, pausing on hover
+  const track = document.querySelector('.u-track');
+  if (track) {
+    let paused = false;
+    track.addEventListener('mouseenter', () => paused = true);
+    track.addEventListener('mouseleave', () => paused = false);
+    setInterval(() => {
+      if (paused) return;
+      track.scrollLeft += 1;
+      if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) track.scrollLeft = 0;
+    }, 40);
+  }
+</script>
+
+</body>
+</html>
