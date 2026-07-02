@@ -1,6 +1,6 @@
 # Mallikarjuna Thippana — Portfolio
 
-Personal portfolio site for **Dr. Mallikarjuna Thippana**, computational biologist specializing in single-cell & spatial multi-omics, cancer epigenomics, and statistical ML for biological data.
+Personal portfolio site for **Dr. Mallikarjuna Thippana**, computational biologist specializing in genomics & epigenomics (bulk RNA-seq, ChIP-seq, ATAC-seq, CUT&RUN), single-cell & spatial multi-omics, and statistical ML for biological data.
 
 **Live site:** [arjunbioinfo.github.io](https://arjunbioinfo.github.io/)
 
