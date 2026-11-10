@@ -166,7 +166,7 @@
   @media (min-width:900px){ .hero .role{max-width:none;white-space:nowrap;font-size:min(20px,1.9vw);} }
   .hero p.summary{
     position:relative;z-index:2;
-    max-width:660px;color:var(--text-faint);font-size:15px;margin-bottom:38px;
+    max-width:880px;color:var(--text-faint);font-size:15px;margin-bottom:38px;
   }
   .hero-actions{position:relative;z-index:2;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:46px;}
   .btn{
@@ -203,7 +203,7 @@
   }
   .section-tag::before{content:'';width:26px;height:2px;background:var(--accent);display:inline-block;}
   .section-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-0.8px;margin-bottom:18px;}
-  .section-lead{color:var(--text-dim);font-size:15.5px;max-width:660px;margin-bottom:56px;}
+  .section-lead{color:var(--text-dim);font-size:15.5px;max-width:100%;margin-bottom:56px;}
 
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
@@ -581,13 +581,14 @@
   .next-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
   .next-block p{font-size:15.5px;color:var(--text);line-height:1.7;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
   @media (max-width:520px){ .next-block{padding:20px 18px;} .next-block p{font-size:14.8px;} }
-  /* JUSTIFIED BODY TEXT */
-  .section-lead,.focus-card p,.t-item li,.t-org,.pub-find,.code-card p,.work-card .cap span,
-  .work-feature .cap span,.hl-card span:not(.hl-kicker):not(.hl-tag),.conf-talk,.edu-item .thesis,
-  .next-block p,.about-grid p{
-    text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+  /* JUSTIFIED BODY TEXT — long paragraphs only; "pretty" wrapping avoids stranded last words */
+  .focus-card p,.code-card p,.work-feature .cap span:not(.note):not(.kicker),.next-block p,.about-grid p{
+    text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty;}
+  /* short texts: left-aligned with balanced lines */
+  .section-lead,.pub-find,.work-card .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org,.t-item li{
+    text-align:left;text-wrap:balance;}
   /* centred blocks: justified, last line centred */
-  .hero p.summary,.contact-cta p{text-align:justify;text-align-last:center;hyphens:auto;-webkit-hyphens:auto;}
+  .hero p.summary,.contact-cta p{text-align:justify;text-align-last:center;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty;}
   /* HIGHLIGHTS */
   .highlights{padding:44px 6vw 0;}
   .hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
