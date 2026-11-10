@@ -210,7 +210,7 @@
 
   /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start;}
-  .about-grid p{color:var(--text-dim);font-size:15.5px;margin-bottom:18px;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+  .about-grid p{color:var(--text-dim);font-size:15.5px;margin-bottom:18px;text-align:justify;hyphens:manual;-webkit-hyphens:manual;}
   .about-grid p b{color:var(--text);font-weight:600;}
   .stat-card{
     background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
@@ -347,7 +347,7 @@
   .contact-cta h2{font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-1px;margin-bottom:20px;}
   .contact-cta h2 span{color:var(--accent);}
   @media (min-width:900px){ .contact-cta h2{white-space:nowrap;font-size:min(52px,3.9vw);} }
-  .contact-cta p{color:var(--text-dim);max-width:520px;margin:0 auto 40px;font-size:15.5px;}
+  .contact-cta p{color:var(--text-dim);max-width:830px;margin:0 auto 40px;font-size:15.5px;}
   .contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
   .contact-pill{
     display:flex;align-items:center;gap:10px;padding:13px 22px;border-radius:100px;
@@ -580,16 +580,24 @@
   .next-block{margin-top:34px;padding:24px 28px;border-radius:var(--radius);border:1px solid rgba(79,214,199,.28);
     background:linear-gradient(135deg,var(--accent-soft),rgba(242,177,52,.06));}
   .next-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
-  .next-block p{font-size:15.5px;color:var(--text);line-height:1.7;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+  .next-block p{font-size:15.5px;color:var(--text);line-height:1.7;text-align:justify;hyphens:manual;-webkit-hyphens:manual;}
   @media (max-width:520px){ .next-block{padding:20px 18px;} .next-block p{font-size:14.8px;} }
   /* JUSTIFIED BODY TEXT — long paragraphs only; "pretty" wrapping avoids stranded last words */
-  .focus-card p,.code-card p,.work-feature .cap span:not(.note):not(.kicker),.next-block p,.about-grid p,.t-item li{
-    text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty;}
+  .work-feature .cap span:not(.note):not(.kicker),.next-block p,.about-grid p,.t-item li{
+    text-align:justify;hyphens:manual;-webkit-hyphens:manual;text-wrap:pretty;}
   /* short texts: left-aligned with balanced lines */
-  .section-lead,.pub-find,.work-card .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org{
+  .section-lead,.pub-find,.work-card .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org,.focus-card p,.code-card p{
     text-align:left;text-wrap:balance;}
   /* centred blocks: justified, last line centred */
-  .hero p.summary,.contact-cta p{text-align:justify;text-align-last:center;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty;}
+  .hero p.summary,.contact-cta p{text-align:justify;text-align-last:center;hyphens:manual;-webkit-hyphens:manual;text-wrap:pretty;}
+  @media (min-width:1200px){ .section-lead.one-line{white-space:nowrap;font-size:min(13.9px,1.08vw);} }
+  /* phones: narrow lines + justification = big gaps, so use natural alignment */
+  @media (max-width:600px){
+    .about-grid p,.next-block p,.t-item li,.work-feature .cap span:not(.note):not(.kicker){text-align:left;}
+    .hero p.summary,.contact-cta p{text-align:center;text-align-last:auto;}
+  }
+  /* awards: text column flush right */
+  .award-text{text-align:right;}
   /* HIGHLIGHTS */
   .highlights{padding:44px 6vw 0;}
   .hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -779,7 +787,7 @@
   <div class="wrap reveal">
     <div class="section-tag">Research Focus</div>
     <h2 class="section-title">What I work on</h2>
-    <p class="section-lead">Four connected areas: how cancer genes are regulated, how cancer genomes are rearranged, how cell types differ between patients, and the methods that tie it together.</p>
+    <p class="section-lead one-line">Four connected areas: how cancer genes are regulated, how cancer genomes are rearranged, how cell types differ between patients, and the methods that tie it together.</p>
     <div class="focus-grid">
       <div class="focus-card">
         <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></div>
