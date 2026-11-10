@@ -346,6 +346,7 @@
   }
   .contact-cta h2{font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-1px;margin-bottom:20px;}
   .contact-cta h2 span{color:var(--accent);}
+  @media (min-width:900px){ .contact-cta h2{white-space:nowrap;font-size:min(52px,3.9vw);} }
   .contact-cta p{color:var(--text-dim);max-width:520px;margin:0 auto 40px;font-size:15.5px;}
   .contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
   .contact-pill{
@@ -582,10 +583,10 @@
   .next-block p{font-size:15.5px;color:var(--text);line-height:1.7;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
   @media (max-width:520px){ .next-block{padding:20px 18px;} .next-block p{font-size:14.8px;} }
   /* JUSTIFIED BODY TEXT — long paragraphs only; "pretty" wrapping avoids stranded last words */
-  .focus-card p,.code-card p,.work-feature .cap span:not(.note):not(.kicker),.next-block p,.about-grid p{
+  .focus-card p,.code-card p,.work-feature .cap span:not(.note):not(.kicker),.next-block p,.about-grid p,.t-item li{
     text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty;}
   /* short texts: left-aligned with balanced lines */
-  .section-lead,.pub-find,.work-card .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org,.t-item li{
+  .section-lead,.pub-find,.work-card .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org{
     text-align:left;text-wrap:balance;}
   /* centred blocks: justified, last line centred */
   .hero p.summary,.contact-cta p{text-align:justify;text-align-last:center;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty;}
@@ -717,9 +718,9 @@
 <div class="updates" role="region" aria-label="Latest news">
   <div class="u-label"><span class="pulse"></span> Latest</div>
   <div class="u-track">
-    <span class="u-item"><b>Jan 2026</b> <span>CTCF/MYC preprint on bioRxiv (co-author) — now under revision at <i>Nucleic Acids Research</i></span></span>
     <span class="u-item"><b>Nov 2026</b> <span>LAN-5 neuroblastoma WGS: MYCN amplicon reconstructed and classified ecDNA-positive</span></span>
     <span class="u-item"><b>Jul 2026</b> <span>Released CI-tested, Zenodo-archived code for both published gene-prioritisation methods</span></span>
+    <span class="u-item"><b>Jan 2026</b> <span>CTCF/MYC preprint on bioRxiv (co-author) — now under revision at <i>Nucleic Acids Research</i></span></span>
     <span class="u-item"><b>2026</b> <span>Lung squamous cell carcinoma paper in print, <i>J Biomol Struct Dyn</i> 44(3)</span></span>
     <span class="u-item"><b>Dec 2024</b> <span>Joined Karolinska Institutet, Dept. of Oncology-Pathology</span></span>
     <span class="u-item"><b>May 2024</b> <span>PhD defended, University of Hyderabad</span></span>
@@ -757,8 +758,8 @@
     <div class="about-grid">
       <div>
         <p>I'm a <b>computational biologist</b> with a PhD in Computational Systems Biology, working on <b>cancer regulatory genomics, 3D genome regulation and integrative multi-omics</b>.</p>
-        <p>In <b>Dr Anita Göndör's group at Karolinska Institutet</b> I study how a distal CTCF-binding site and long-range enhancer contacts shape MYC expression — combining nascent transcription (GRO-seq), chromatin accessibility (ATAC-seq), protein occupancy (CUT&amp;RUN), chromatin contacts (4C-seq) and RNA-seq to prioritise hypotheses that the wet lab then tests. In our recent preprint, a single CTCF site in the CCAT1 super-enhancer turns out to act as a switch that pushes cells towards low or high MYC. I also lead the analysis of a clinical snRNA-seq cohort and analyse cancer whole-genome data for focal amplifications and ecDNA.</p>
-        <p>During my PhD I <b>designed and published two original gene-prioritisation algorithms</b> (chaos-game/multifractal and moment-of-inertia tensor), now available as tested, open-source Python packages. I care about reproducible analysis — Git, Nextflow/Snakemake, containers and Linux HPC — and about explaining results clearly to experimental colleagues and students.</p>
+        <p>In <b>Dr Anita Göndör's group at Karolinska Institutet</b>, I study how a distal CTCF-binding site and long-range enhancer contacts shape MYC expression — combining nascent transcription (GRO-seq), chromatin accessibility (ATAC-seq), protein occupancy (CUT&amp;RUN), chromatin contacts (4C-seq) and RNA-seq to prioritise hypotheses that the wet lab then tests. In our recent preprint, a single CTCF site in the CCAT1 super-enhancer turns out to act as a switch that pushes cells towards low or high MYC. I also lead the analysis of a clinical snRNA-seq cohort and analyse cancer whole-genome data for focal amplifications and ecDNA.</p>
+        <p>During my PhD, I <b>designed and published two original gene-prioritisation algorithms</b> (chaos-game/multifractal and moment-of-inertia tensor), now available as tested, open-source Python packages. I care about reproducible analysis — Git, Nextflow/Snakemake, containers and Linux HPC — and about explaining results clearly to experimental colleagues and students.</p>
       </div>
       <div>
         <div class="stat-card"><span class="num">8</span><span class="label">Peer-reviewed journal articles</span></div>
@@ -843,7 +844,7 @@
         <div class="t-proj">
           <h4>Clinical snRNA-seq — human endometrium in PCOS</h4>
           <ul>
-            <li>Lead the computational analysis (5 controls, 12 PCOS): QC, Harmony integration, epithelial/stromal/immune/endothelial annotation</li>
+            <li>Lead the computational analysis of the cohort (5 controls, 12 PCOS): QC, Harmony integration, epithelial/stromal/immune/endothelial annotation</li>
             <li>Cell-type-specific differential expression and variability analysis, plus CTCF-binding enrichment near affected genes</li>
           </ul>
         </div>
@@ -914,7 +915,7 @@
       <figure><img src="assets/work-lan5-mycn.png" alt="MYCN-containing amplicon in LA-N-5 on chromosome 2: a 1.619 Mb classifier feature across four intervals, a 454.9 kb candidate cycle with an inferred closing junction, and junction evidence counts" width="1400" height="787" loading="lazy"></figure>
       <div class="cap">
         <span class="kicker">New · Cancer WGS / ecDNA</span>
-        <b>MYCN amplicon reconstruction in LA-N-5 neuroblastoma</b>
+        <b>MYCN amplicon reconstruction in LAN-5 (LA-N-5) neuroblastoma</b>
         <span>Public short-read WGS (ENA ERR10075187, 383.6 M read pairs) run through my AmpliconSuite / nf-core/circdna workflow. AmpliconClassifier calls the MYCN-containing amplicon <b>ecDNA-positive</b> (MYCN copy number ≈ 212); the top 455 kb candidate cycle is closed by a junction supported by <b>241 reads</b> matching a 56 bp insertion.</span>
         <span class="note">Computational prediction: physical circularity and location still need experimental confirmation (e.g. FISH).</span>
         <a href="https://github.com/arjunbioinfo/ecDNA-WGS-circdna" target="_blank" rel="noopener">Workflow code →</a>
@@ -1255,7 +1256,7 @@
 <section class="contact-cta" id="contact">
   <div class="wrap reveal">
     <div class="section-tag" style="justify-content:center;">Get In Touch</div>
-    <h2>Let's talk <span>science</span>, data,<br>or opportunities.</h2>
+    <h2>Let's talk <span>science</span>, data, or opportunities.</h2>
     <p>I'm looking for computational biology / bioinformatics scientist roles in cancer genomics, gene regulation and multi-omics — in academia or industry, in Sweden or internationally. Happy to talk about collaborations too.</p>
     <div class="contact-links">
       <a class="contact-pill" href="mailto:arjun.ins@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> arjun.ins@gmail.com</a>
