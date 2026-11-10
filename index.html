@@ -581,6 +581,11 @@
   .next-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
   .next-block p{font-size:15.5px;color:var(--text);line-height:1.7;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
   @media (max-width:520px){ .next-block{padding:20px 18px;} .next-block p{font-size:14.8px;} }
+  /* JUSTIFIED BODY TEXT */
+  .section-lead,.focus-card p,.t-item li,.t-org,.pub-find,.code-card p,.work-card .cap span,
+  .work-feature .cap span,.hl-card span:not(.hl-kicker):not(.hl-tag),.conf-talk,.edu-item .thesis,
+  .next-block p,.about-grid p{
+    text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
   /* HIGHLIGHTS */
   .highlights{padding:44px 6vw 0;}
   .hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -627,7 +632,6 @@
   .conf-poster{display:block;margin-top:10px;width:150px;border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:all .25s ease;}
   .conf-poster:hover{border-color:var(--accent);transform:translateY(-2px);}
   .conf-poster img{display:block;width:100%;height:auto;}
-  .conf-poster.wide{width:280px;max-width:100%;}
   @media (max-width:960px){ .work-feature{grid-template-columns:1fr;} }
   @media (max-width:960px){ .work-grid{grid-template-columns:1fr;} .work-card figure{aspect-ratio:auto;max-height:340px;} }
   @media print{ .work-grid{grid-template-columns:repeat(3,1fr);} }
@@ -1211,11 +1215,7 @@
             <div class="conf-name">Systems Approaches to Cancer Biology (SACB) 2022</div>
             <div class="conf-meta"><span>Marine Biological Laboratory, Woods Hole, USA</span><span class="sep">·</span><span>Oct 2022</span><span class="sep">·</span><span>Selected poster, session B</span></div>
             <div class="conf-talk">"Ascertainment of non-coding genes as key molecular players in cervical squamous cell carcinoma through the systems biology approach"</div>
-            <div class="conf-links">
-              <a class="conf-news" href="posters/Thippana_SACB2022_graphical_abstract.jpg" target="_blank" rel="noopener">View graphical abstract →</a>
-              <a class="conf-news" href="posters/Thippana_SACB2022_abstract.pdf" target="_blank" rel="noopener">Read abstract (PDF) →</a>
-            </div>
-            <a class="conf-poster wide" href="posters/Thippana_SACB2022_graphical_abstract.jpg" target="_blank" rel="noopener"><img src="assets/poster-sacb2022-thumb.jpg" alt="Graphical abstract: TCGA transcriptomes, differential expression, PPI and ceRNA networks identify hub lncRNA KCNQ1OT1 and hub miRNA hsa-miR-637 in cervical cancer" width="900" height="562" loading="lazy"></a>
+            <a class="conf-news" href="posters/Thippana_SACB2022_abstract.pdf" target="_blank" rel="noopener">Read abstract (PDF) →</a>
           </div>
         </div>
         <div class="conf-card">
