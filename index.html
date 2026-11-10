@@ -412,7 +412,7 @@
   .avatar::before{
     content:'';position:absolute;inset:-4px;border-radius:50%;z-index:-1;
     background:conic-gradient(from 0deg, var(--accent), var(--accent2), var(--accent));
-    animation:spin 6s linear infinite;
+    animation:spin 14s linear infinite;
   }
   .avatar::after{
     content:'';position:absolute;inset:0;border-radius:50%;background:var(--bg);
@@ -472,17 +472,17 @@
   .aurora .b1{
     width:560px;height:560px;top:-160px;left:-120px;opacity:0.28;
     background:radial-gradient(circle, var(--accent), transparent 70%);
-    animation:drift1 48s ease-in-out infinite alternate;
+    animation:drift1 80s ease-in-out infinite alternate;
   }
   .aurora .b2{
     width:480px;height:480px;bottom:-160px;right:-100px;opacity:0.22;
     background:radial-gradient(circle, var(--accent2), transparent 70%);
-    animation:drift2 60s ease-in-out infinite alternate;
+    animation:drift2 100s ease-in-out infinite alternate;
   }
   .aurora .b3{
     width:400px;height:400px;top:38%;left:58%;opacity:0.18;
     background:radial-gradient(circle, var(--accent), transparent 70%);
-    animation:drift3 66s ease-in-out infinite alternate;
+    animation:drift3 110s ease-in-out infinite alternate;
   }
   @keyframes drift1{0%{transform:translate(0,0) scale(1);}100%{transform:translate(140px,200px) scale(1.15);}}
   @keyframes drift2{0%{transform:translate(0,0) scale(1);}100%{transform:translate(-160px,-120px) scale(1.1);}}
@@ -850,8 +850,11 @@
         <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="M6 17c4 0 5-10 9-10 2 0 3 2 5 2"/></svg> efficiency-corrected-rt-qpcr</div>
         <h3>Efficiency-corrected RT-qPCR</h3>
         <p>A compact demonstration of Pfaffl-style amplification-efficiency correction for Cq data, on seeded synthetic data.</p>
-        <div class="code-tags"><span>Python</span><span>Statistics</span></div>
-        <div class="code-links"><a href="https://github.com/arjunbioinfo/efficiency-corrected-rt-qpcr" target="_blank" rel="noopener">Repository →</a></div>
+        <div class="code-tags"><span>R</span><span>Excel</span><span>CI</span></div>
+        <div class="code-links">
+          <a href="https://github.com/arjunbioinfo/efficiency-corrected-rt-qpcr" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://arjunbioinfo.github.io/efficiency-corrected-rt-qpcr/" target="_blank" rel="noopener">Live report</a>
+        </div>
       </article>
       <article class="code-card more">
         <h3>More on GitHub</h3>
@@ -1092,7 +1095,7 @@
         <h3 class="sub-h">Mentoring</h3>
         <div class="mem-card">
           <span class="mem-name">Supervised five MSc dissertation projects; train and support experimental colleagues in computational analysis</span>
-          <span class="mem-since">2019 – present</span>
+          <span class="mem-since">2019 – 2024</span>
         </div>
         <h3 class="sub-h" style="margin-top:28px;">Memberships</h3>
         <div class="mem-card">
@@ -1190,20 +1193,24 @@
     const count = Math.min(70, Math.floor((W*H)/18000));
     particles = Array.from({length: count}, () => ({
       x: Math.random()*W, y: Math.random()*H,
-      vx: (Math.random()-0.5)*0.35, vy: (Math.random()-0.5)*0.35, r: Math.random()*1.6+0.6
+      vx: (Math.random()-0.5)*0.16, vy: (Math.random()-0.5)*0.16, r: Math.random()*1.6+0.6
     }));
   }
+  let lastTick = 0;
   function tick(){
+    const nowT = performance.now();
+    const dt = lastTick ? Math.min((nowT - lastTick) / 16.667, 3) : 1;
+    lastTick = nowT;
     ctx.clearRect(0,0,W,H);
     const rect = canvas.getBoundingClientRect();
     const lmx = mouseX - rect.left, lmy = mouseY - rect.top;
     const hasPointer = lmx > -60 && lmx < W+60 && lmy > -60 && lmy < H+60;
     particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
+      p.x += p.vx*dt; p.y += p.vy*dt;
       if (hasPointer) {
         const dx = lmx - p.x, dy = lmy - p.y, d = Math.sqrt(dx*dx+dy*dy);
         if (d < 140 && d > 0.01) {
-          const f = (1 - d/140) * 0.55;
+          const f = (1 - d/140) * 0.3 * dt;
           p.x += (dx/d)*f;
           p.y += (dy/d)*f;
         }
@@ -1267,8 +1274,8 @@
     netNodes = Array.from({length: nodeCount}, () => ({
       x: DW*0.18 + rand()*DW*0.64,
       y: DH*0.08 + rand()*DH*0.84,
-      vx: (rand()-0.5)*0.12,
-      vy: (rand()-0.5)*0.12,
+      vx: (rand()-0.5)*0.06,
+      vy: (rand()-0.5)*0.06,
       r: 2 + rand()*1.6,
       hue: rand() > 0.5 ? 'accent' : 'accent2'
     }));
@@ -1302,7 +1309,11 @@
     }
   }
 
+  let lastBio = 0;
   function drawBioBg(){
+    const nowB = performance.now();
+    const bdt = lastBio ? Math.min((nowB - lastBio) / 16.667, 3) : 1;
+    lastBio = nowB;
     dctx.clearRect(0,0,DW,DH);
     const hasCursor = mouseX > -9000;
     const parallaxX = hasCursor ? (mouseX - DW/2) * 0.015 : 0;
@@ -1346,11 +1357,11 @@
 
     // -- Gene regulatory network: drifting nodes + proximity edges (cursor attracts nearby nodes) --
     netNodes.forEach(n => {
-      n.x += n.vx; n.y += n.vy;
+      n.x += n.vx*bdt; n.y += n.vy*bdt;
       if (hasCursor) {
         const dx = mouseX - n.x, dy = mouseY - n.y, d = Math.sqrt(dx*dx+dy*dy);
         if (d < 170 && d > 0.01) {
-          const f = (1 - d/170) * 0.4;
+          const f = (1 - d/170) * 0.22 * bdt;
           n.x += (dx/d)*f;
           n.y += (dy/d)*f;
         }
@@ -1416,8 +1427,8 @@
     // -- Click ripples: a "ping" radiating out from wherever you click --
     for (let i=ripples.length-1;i>=0;i--){
       const r = ripples[i];
-      r.r += 2.6;
-      r.alpha -= 0.012;
+      r.r += 2.2*bdt;
+      r.alpha -= 0.011*bdt;
       if (r.alpha <= 0){ ripples.splice(i,1); continue; }
       dctx.beginPath();
       dctx.arc(r.x, r.y, r.r, 0, Math.PI*2);
@@ -1426,7 +1437,7 @@
       dctx.stroke();
     }
 
-    bioT += 0.3;
+    bioT += 0.12*bdt;
     if (animating) requestAnimationFrame(drawBioBg);
   }
 
@@ -1438,7 +1449,7 @@
   document.addEventListener('visibilitychange', () => {
     const wasAnimating = animating;
     animating = !reduceMotion && !document.hidden;
-    if (animating && !wasAnimating) { tick(); drawBioBg(); }
+    if (animating && !wasAnimating) { lastTick = 0; lastBio = 0; tick(); drawBioBg(); }
   });
 
   // Nav background on scroll
@@ -1464,7 +1475,7 @@
       if (paused) return;
       track.scrollLeft += 1;
       if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) track.scrollLeft = 0;
-    }, 40);
+    }, 60);
   }
 
   // Mobile menu (accessible toggle)
