@@ -13,14 +13,15 @@
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://arjunbioinfo.github.io/">
 <meta property="og:site_name" content="Mallikarjuna Thippana, PhD">
-<meta property="og:image" content="https://arjunbioinfo.github.io/profile.jpg">
-<meta property="og:image:width" content="500">
-<meta property="og:image:height" content="616">
-<meta property="og:image:alt" content="Portrait of Mallikarjuna Thippana">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://arjunbioinfo.github.io/og-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mallikarjuna Thippana, PhD — Computational Biologist at Karolinska Institutet">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mallikarjuna Thippana, PhD — Computational Biologist">
 <meta name="twitter:description" content="Cancer gene regulation, 3D genomics, cancer WGS/ecDNA and single-cell analysis at Karolinska Institutet.">
-<meta name="twitter:image" content="https://arjunbioinfo.github.io/profile.jpg">
+<meta name="twitter:image" content="https://arjunbioinfo.github.io/og-card.jpg">
 <link rel="canonical" href="https://arjunbioinfo.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080b10'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='700' fill='%234fd6c7' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -568,6 +569,21 @@
   .lang-list span{font-size:13px;padding:6px 12px;border-radius:100px;border:1px solid var(--border);color:var(--text-dim);}
   .lang-list span b{color:var(--text);font-weight:600;}
   .sub-h{font-size:15px;color:var(--text-dim);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+  /* SELECTED WORK FIGURES */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:46px;}
+  .work-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    display:flex;flex-direction:column;transition:all .25s ease;}
+  .work-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+  .work-card figure{margin:0;background:#fff;aspect-ratio:12/5;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:8px;}
+  .work-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;}
+  .work-card .cap{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .work-card .cap b{font-family:'Space Grotesk';font-size:15.5px;font-weight:600;}
+  .work-card .cap span{font-size:13px;color:var(--text-dim);flex:1;}
+  .work-card .cap a{font-size:12.8px;font-weight:600;color:var(--accent);margin-top:4px;}
+  .work-card .cap a:hover{text-decoration:underline;}
+  .sub-h.work{margin-bottom:16px;}
+  @media (max-width:960px){ .work-grid{grid-template-columns:1fr;} .work-card figure{aspect-ratio:auto;max-height:340px;} }
+  @media print{ .work-grid{grid-template-columns:repeat(3,1fr);} }
   @media (max-width:960px){ .code-grid{grid-template-columns:repeat(2,1fr);} .kpi-row{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:620px){ .code-grid{grid-template-columns:1fr;} }
   @media (prefers-reduced-motion: reduce){
@@ -809,6 +825,22 @@
     <div class="section-tag">Open Source</div>
     <h2 class="section-title">Code &amp; Software</h2>
     <p class="section-lead">Reference implementations of my published methods and reproducible pipelines — tested with continuous integration and pinned environments.</p>
+    <h3 class="sub-h work">Selected work — example outputs</h3>
+    <div class="work-grid">
+      <article class="work-card">
+        <figure><img src="assets/work-cgr.png" alt="Frequency chaos-game representation heatmap of a gene sequence and its cross multifractal spectrum f(alpha)" width="1000" height="418" loading="lazy"></figure>
+        <div class="cap"><b>Chaos-game + multifractal prioritisation</b><span>fCGR matrix of a candidate gene (left) and its cross-multifractal spectrum against a known cancer gene (right).</span><a href="https://github.com/arjunbioinfo/cgr-mfxdfa-gene-prioritization" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+      <article class="work-card">
+        <figure><img src="assets/work-moi.png" alt="Euclidean distance matrix between protein descriptors and an average-linkage dendrogram" width="1000" height="411" loading="lazy"></figure>
+        <div class="cap"><b>Moment-of-inertia tensor descriptors</b><span>Distance matrix between alignment-free protein descriptors (left) and the resulting dendrogram used to rank candidates (right).</span><a href="https://github.com/arjunbioinfo/moment-of-inertia-tensor-gene-prioritization" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+      <article class="work-card">
+        <figure><img src="assets/work-scrna-umap.png" alt="UMAP of peripheral blood mononuclear cells coloured by Leiden cluster" width="535" height="429" loading="lazy"></figure>
+        <div class="cap"><b>Reproducible scRNA-seq pipeline</b><span>UMAP of the bundled 3k-PBMC example: 2,382 cells after QC and doublet removal, 7 Leiden clusters resolving T, NK, B, monocyte and dendritic cells.</span><a href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+    </div>
+    <h3 class="sub-h work">Repositories</h3>
     <div class="code-grid">
       <article class="code-card">
         <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg> cgr-mfxdfa-gene-prioritization</div>
