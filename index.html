@@ -583,21 +583,23 @@
   .next-block p{font-size:15.5px;color:var(--text);line-height:1.7;text-align:justify;hyphens:manual;-webkit-hyphens:manual;}
   @media (max-width:520px){ .next-block{padding:20px 18px;} .next-block p{font-size:14.8px;} }
   /* JUSTIFIED BODY TEXT — long paragraphs only; "pretty" wrapping avoids stranded last words */
-  .work-feature .cap span:not(.note):not(.kicker),.next-block p,.about-grid p,.t-item li{
+  .next-block p,.about-grid p,.t-item li{
     text-align:justify;hyphens:manual;-webkit-hyphens:manual;text-wrap:pretty;}
   /* short texts: left-aligned with balanced lines */
-  .section-lead,.pub-find,.work-card .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org,.focus-card p,.code-card p{
+  .section-lead,.pub-find,.work-card .cap span,.work-feature .cap span,.hl-card span,.conf-talk,.edu-item .thesis,.t-org,.focus-card p,.code-card p{
     text-align:left;text-wrap:balance;}
   /* centred blocks: justified, last line centred */
   .hero p.summary,.contact-cta p{text-align:justify;text-align-last:center;hyphens:manual;-webkit-hyphens:manual;text-wrap:pretty;}
   @media (min-width:1200px){ .section-lead.one-line{white-space:nowrap;font-size:min(13.9px,1.08vw);} }
   /* phones: narrow lines + justification = big gaps, so use natural alignment */
   @media (max-width:600px){
-    .about-grid p,.next-block p,.t-item li,.work-feature .cap span:not(.note):not(.kicker){text-align:left;}
+    .about-grid p,.next-block p,.t-item li{text-align:left;}
     .hero p.summary,.contact-cta p{text-align:center;text-align-last:auto;}
   }
   /* awards: text column flush right */
   .award-text{text-align:right;}
+  .nb{white-space:nowrap !important;text-wrap:nowrap !important;}
+  .hl-card span.nb,.work-feature .cap span.nb,.work-feature .cap b span.nb,.stat-card span.nb{font:inherit;color:inherit;letter-spacing:inherit;}
   /* HIGHLIGHTS */
   .highlights{padding:44px 6vw 0;}
   .hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -746,8 +748,8 @@
     </a>
     <a class="hl-card" href="#code">
       <span class="hl-kicker">Cancer genomes</span>
-      <b>MYCN ecDNA in LAN-5</b>
-      <span>MYCN amplicon (copy number ≈ 212) reconstructed from public WGS and classified ecDNA-positive.</span>
+      <b>MYCN ecDNA in <span class="nb">LAN-5</span></b>
+      <span>MYCN amplicon (copy number ≈&nbsp;212) reconstructed from public WGS and classified ecDNA-positive.</span>
       <span class="hl-tag">2026 · AmpliconSuite / nf-core</span>
     </a>
     <a class="hl-card" href="#code">
@@ -766,7 +768,7 @@
     <div class="about-grid">
       <div>
         <p>I'm a <b>computational biologist</b> with a PhD in Computational Systems Biology, working on <b>cancer regulatory genomics, 3D genome regulation and integrative multi-omics</b>.</p>
-        <p>In <b>Dr Anita Göndör's group at Karolinska Institutet</b>, I study how a distal CTCF-binding site and long-range enhancer contacts shape MYC expression — combining nascent transcription (GRO-seq), chromatin accessibility (ATAC-seq), protein occupancy (CUT&amp;RUN), chromatin contacts (4C-seq) and RNA-seq to prioritise hypotheses that the wet lab then tests. In our recent preprint, a single CTCF site in the CCAT1 super-enhancer turns out to act as a switch that pushes cells towards low or high MYC. I also lead the analysis of a clinical snRNA-seq cohort and analyse cancer whole-genome data for focal amplifications and ecDNA.</p>
+        <p>In <b>Dr Anita Göndör's group at Karolinska Institutet</b>, I study how a distal CTCF-binding site and long-range enhancer contacts shape MYC expression — combining nascent transcription (<span class="nb">GRO-seq</span>), chromatin accessibility (<span class="nb">ATAC-seq</span>), protein occupancy (CUT&amp;RUN), chromatin contacts (<span class="nb">4C-seq</span>) and <span class="nb">RNA-seq</span> to prioritise hypotheses that the wet lab then tests. In our recent preprint, a single CTCF site in the CCAT1 super-enhancer turns out to act as a switch that pushes cells towards low or high MYC. I also lead the analysis of a clinical <span class="nb">snRNA-seq</span> cohort and analyse cancer whole-genome data for focal amplifications and ecDNA.</p>
         <p>During my PhD, I <b>designed and published two original gene-prioritisation algorithms</b> (chaos-game/multifractal and moment-of-inertia tensor), now available as tested, open-source Python packages. I care about reproducible analysis — Git, Nextflow/Snakemake, containers and Linux HPC — and about explaining results clearly to experimental colleagues and students.</p>
       </div>
       <div>
@@ -830,27 +832,27 @@
         <div class="t-pi">Group of Dr Anita Göndör</div>
 
         <div class="kpi-row">
-          <div class="kpi"><div class="v">5,175</div><div class="k">differential ATAC-seq regions</div></div>
-          <div class="kpi"><div class="v">1,816</div><div class="k">nascent-transcription DEGs (GRO-seq)</div></div>
+          <div class="kpi"><div class="v">5,175</div><div class="k">differential <span class="nb">ATAC-seq</span> regions</div></div>
+          <div class="kpi"><div class="v">1,816</div><div class="k">nascent-transcription DEGs (<span class="nb">GRO-seq</span>)</div></div>
           <div class="kpi"><div class="v">98</div><div class="k">shared multi-omic candidate genes</div></div>
-          <div class="kpi"><div class="v">17</div><div class="k">donors in clinical snRNA-seq cohort</div></div>
+          <div class="kpi"><div class="v">17</div><div class="k">donors in clinical <span class="nb">snRNA-seq</span> cohort</div></div>
         </div>
 
         <div class="t-proj">
           <h4>MYC/CTCF enhancer control &amp; 3D genome regulation</h4>
           <ul>
-            <li>Combine GRO-seq, RNA-seq, ATAC-seq, 4C-seq and experimental evidence to study enhancer activity and long-range regulation of MYC — co-author of a study <b>under revision at <i>Nucleic Acids Research</i></b> showing that a CTCF site in the CCAT1 super-enhancer coordinates a negative feed-forward loop that diversifies cells towards low or high MYC</li>
+            <li>Combine <span class="nb">GRO-seq</span>, <span class="nb">RNA-seq</span>, <span class="nb">ATAC-seq</span>, <span class="nb">4C-seq</span> and experimental evidence to study enhancer activity and long-range regulation of MYC — co-author of a study <b>under revision at <i>Nucleic Acids Research</i></b> showing that a CTCF site in the CCAT1 super-enhancer coordinates a negative feed-forward loop that diversifies cells towards low or high MYC</li>
             <li>Analyse NUP133 CUT&amp;RUN occupancy relative to CTCF sites and enhancer annotations; TF-motif and CTCF-regulatory enrichment to prioritise hypotheses for experimental testing</li>
           </ul>
         </div>
         <div class="t-proj">
           <h4>Chromatin priming under p60AmotL2 / iBET151 perturbation</h4>
           <ul>
-            <li>Integrated ATAC-seq, RNA-seq (305 DEGs) and GRO-seq to narrow thousands of changes down to 98 shared candidates, <b>38</b> of them chromatin-priming candidates for follow-up</li>
+            <li>Integrated <span class="nb">ATAC-seq</span>, <span class="nb">RNA-seq</span> (305 DEGs) and <span class="nb">GRO-seq</span> to narrow thousands of changes down to 98 shared candidates, <b>38</b> of them chromatin-priming candidates for follow-up</li>
           </ul>
         </div>
         <div class="t-proj">
-          <h4>Clinical snRNA-seq — human endometrium in PCOS</h4>
+          <h4>Clinical <span class="nb">snRNA-seq</span> — human endometrium in PCOS</h4>
           <ul>
             <li>Lead the computational analysis of the cohort (5 controls, 12 PCOS): QC, Harmony integration, epithelial/stromal/immune/endothelial annotation</li>
             <li>Cell-type-specific differential expression and variability analysis, plus CTCF-binding enrichment near affected genes</li>
@@ -859,14 +861,14 @@
         <div class="t-proj">
           <h4>Cancer WGS — focal amplifications &amp; ecDNA</h4>
           <ul>
-            <li>Built and validated the ecDNA workflow on public whole-genome sequencing of the <b>MYCN-amplified LAN-5 neuroblastoma cell line</b>: AmpliconSuite (PrepareAA, AmpliconArchitect, AmpliconClassifier) and nf-core/circdna on Linux HPC to reconstruct and classify its focal amplicons — the MYCN amplicon (copy number ≈ 212) is classified <b>ecDNA-positive</b>, with the closing junction of a 455 kb candidate cycle supported by 241 reads</li>
+            <li>Built and validated the ecDNA workflow on public whole-genome sequencing of the <b>MYCN-amplified <span class="nb">LAN-5</span> neuroblastoma cell line</b>: AmpliconSuite (PrepareAA, AmpliconArchitect, AmpliconClassifier) and nf-core/circdna on Linux HPC to reconstruct and classify its focal amplicons — the MYCN amplicon (copy number ≈&nbsp;212) is classified <b>ecDNA-positive</b>, with the closing junction of a 455&nbsp;kb candidate cycle supported by 241 reads</li>
             <li>The same reproducible pipeline is next being applied to the group's tumour whole-genome data</li>
           </ul>
         </div>
         <div class="t-proj">
           <h4>Transcriptomics of HIV–cancer pathway crosstalk</h4>
           <ul>
-            <li>RNA-seq of an HIV-positive patient cohort to identify patient-specific expression signatures and crosstalk with oncogenic pathways</li>
+            <li><span class="nb">RNA-seq</span> of an HIV-positive patient cohort to identify patient-specific expression signatures and crosstalk with oncogenic pathways</li>
           </ul>
         </div>
       </div>
@@ -923,8 +925,8 @@
       <figure><img src="assets/work-lan5-mycn.png" alt="MYCN-containing amplicon in LA-N-5 on chromosome 2: a 1.619 Mb classifier feature across four intervals, a 454.9 kb candidate cycle with an inferred closing junction, and junction evidence counts" width="1400" height="787" loading="lazy"></figure>
       <div class="cap">
         <span class="kicker">New · Cancer WGS / ecDNA</span>
-        <b>MYCN amplicon reconstruction in LAN-5 (LA-N-5) neuroblastoma</b>
-        <span>Public short-read WGS (ENA ERR10075187, 383.6 M read pairs) run through my AmpliconSuite / nf-core/circdna workflow. AmpliconClassifier calls the MYCN-containing amplicon <b>ecDNA-positive</b> (MYCN copy number ≈ 212); the top 455 kb candidate cycle is closed by a junction supported by <b>241 reads</b> matching a 56 bp insertion.</span>
+        <b>MYCN amplicon reconstruction in <span class="nb">LAN-5</span> <span class="nb">(LA-N-5)</span> neuroblastoma</b>
+        <span>Public short-read WGS (ENA ERR10075187, 383.6 M read pairs) run through my AmpliconSuite / nf-core/circdna workflow. AmpliconClassifier calls the MYCN-containing amplicon <b>ecDNA-positive</b> (MYCN copy number ≈&nbsp;212); the top 455&nbsp;kb candidate cycle is closed by a junction supported by <b>241 reads</b> matching a 56&nbsp;bp insertion.</span>
         <span class="note">Computational prediction: physical circularity and location still need experimental confirmation (e.g. FISH).</span>
         <a href="https://github.com/arjunbioinfo/ecDNA-WGS-circdna" target="_blank" rel="noopener">Workflow code →</a>
       </div>
@@ -1221,18 +1223,18 @@
         <div class="conf-card">
           <div class="conf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
           <div>
-            <div class="conf-name">Systems Approaches to Cancer Biology (SACB) 2022</div>
-            <div class="conf-meta"><span>Marine Biological Laboratory, Woods Hole, USA</span><span class="sep">·</span><span>Oct 2022</span><span class="sep">·</span><span>Selected poster, session B</span></div>
+            <div class="conf-name">GIW XXXI / ISCB-Asia V 2022</div>
+            <div class="conf-meta"><span>NCKU, Tainan, Taiwan</span><span class="sep">·</span><span>Dec 2022</span><span class="sep">·</span><span>Paper presentation</span></div>
             <div class="conf-talk">"Ascertainment of non-coding genes as key molecular players in cervical squamous cell carcinoma through the systems biology approach"</div>
+            <a class="conf-news" href="https://herald.uohyd.ac.in/mallikarjuna-thippana-presents-paper-at-taiwan/" target="_blank" rel="noopener">University news story →</a>
           </div>
         </div>
         <div class="conf-card">
           <div class="conf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
           <div>
-            <div class="conf-name">GIW XXXI / ISCB-Asia V 2022</div>
-            <div class="conf-meta"><span>NCKU, Tainan, Taiwan</span><span class="sep">·</span><span>Dec 2022</span><span class="sep">·</span><span>Paper presentation</span></div>
+            <div class="conf-name">Systems Approaches to Cancer Biology (SACB) 2022</div>
+            <div class="conf-meta"><span>Marine Biological Laboratory, Woods Hole, USA</span><span class="sep">·</span><span>Oct 2022</span><span class="sep">·</span><span>Selected poster, session B</span></div>
             <div class="conf-talk">"Ascertainment of non-coding genes as key molecular players in cervical squamous cell carcinoma through the systems biology approach"</div>
-            <a class="conf-news" href="https://herald.uohyd.ac.in/mallikarjuna-thippana-presents-paper-at-taiwan/" target="_blank" rel="noopener">University news story →</a>
           </div>
         </div>
       </div>
