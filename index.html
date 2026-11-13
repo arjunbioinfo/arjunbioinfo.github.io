@@ -610,8 +610,8 @@
   html[data-theme="light"] .skip-link{color:#fff;}
   html[data-theme="light"] ::selection{color:#fff;}
   html[data-theme="light"] .hero h1 span{background:linear-gradient(120deg,#0b7f73 10%,#14a394 55%,#a35f00 100%);-webkit-background-clip:text;background-clip:text;}
-  html[data-theme="light"] .aurora .blob{opacity:.10;}
-  html[data-theme="light"] canvas{filter:saturate(1.6) brightness(.55);}
+  html[data-theme="light"] .aurora .blob{opacity:.16;}
+  html[data-theme="light"] #particles{opacity:.9;}
   html[data-theme="light"] .hero-glow{opacity:.5;}
   html[data-theme="light"] .stat-card,html[data-theme="light"] .focus-card,html[data-theme="light"] .code-card,html[data-theme="light"] .pub-item,html[data-theme="light"] .hl-card,html[data-theme="light"] .work-card,html[data-theme="light"] .work-feature,html[data-theme="light"] .conf-card,html[data-theme="light"] .mem-card,html[data-theme="light"] .skill-cat,html[data-theme="light"] .kpi{box-shadow:0 1px 2px rgba(16,26,37,.05),0 6px 18px -12px rgba(16,26,37,.18);}
   html[data-theme="light"] .work-card figure,html[data-theme="light"] .work-feature figure{border-bottom:1px solid var(--border);}
@@ -1346,6 +1346,11 @@
       document.querySelectorAll('.pub-sep').forEach(s => s.style.display = filter === 'preprint' ? 'none' : 'block');
     });
   });
+  // Background colours follow the theme: on light they are darker and stronger so they stay visible
+  let LIGHT = document.documentElement.getAttribute('data-theme') === 'light';
+  const LIGHT_RGB = {'79,214,199':'11,127,115','242,177,52':'176,104,0','230,237,243':'16,26,37','126,232,220':'20,150,136'};
+  function col(rgb, a){ return LIGHT ? `rgba(${LIGHT_RGB[rgb]||rgb},${Math.min(1,a*2.6)})` : `rgba(${rgb},${a})`; }
+
   // Global pointer tracking + click ripples — drives interactivity across all
   // background canvases without blocking clicks on real page content.
   let mouseX = -9999, mouseY = -9999;
@@ -1402,7 +1407,7 @@
         const a = particles[i], b = particles[j];
         const dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy);
         if (dist < 130){
-          ctx.strokeStyle = `rgba(79,214,199,${0.16*(1-dist/130)})`;
+          ctx.strokeStyle = col('79,214,199',0.16*(1-dist/130));
           ctx.lineWidth = 0.6;
           ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
         }
@@ -1412,19 +1417,19 @@
       particles.forEach(p => {
         const dx = lmx-p.x, dy = lmy-p.y, dist = Math.sqrt(dx*dx+dy*dy);
         if (dist < 140){
-          ctx.strokeStyle = `rgba(242,177,52,${0.3*(1-dist/140)})`;
+          ctx.strokeStyle = col('242,177,52',0.3*(1-dist/140));
           ctx.lineWidth = 0.8;
           ctx.beginPath(); ctx.moveTo(lmx,lmy); ctx.lineTo(p.x,p.y); ctx.stroke();
         }
       });
       ctx.beginPath();
       ctx.arc(lmx,lmy,3,0,Math.PI*2);
-      ctx.fillStyle = 'rgba(242,177,52,0.75)';
+      ctx.fillStyle = col('242,177,52',0.75);
       ctx.fill();
     }
     particles.forEach(p => {
       ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle = 'rgba(79,214,199,0.55)'; ctx.fill();
+      ctx.fillStyle = col('79,214,199',0.55); ctx.fill();
     });
     if (animating) requestAnimationFrame(tick);
   }
@@ -1509,7 +1514,7 @@
         const x = s.x + s.amp*Math.sin((y+bioT)/s.wl*Math.PI*2 + s.phase);
         if (y===-20) dctx.moveTo(x,y); else dctx.lineTo(x,y);
       }
-      dctx.strokeStyle = 'rgba(79,214,199,0.20)';
+      dctx.strokeStyle = col('79,214,199',0.20);
       dctx.lineWidth = 1.2;
       dctx.stroke();
 
@@ -1518,7 +1523,7 @@
         const x = s.x + s.amp*Math.sin((y+bioT)/s.wl*Math.PI*2 + s.phase + Math.PI);
         if (y===-20) dctx.moveTo(x,y); else dctx.lineTo(x,y);
       }
-      dctx.strokeStyle = 'rgba(242,177,52,0.14)';
+      dctx.strokeStyle = col('242,177,52',0.14);
       dctx.lineWidth = 1.2;
       dctx.stroke();
 
@@ -1528,7 +1533,7 @@
         dctx.beginPath();
         dctx.moveTo(x1,y);
         dctx.lineTo(x2,y);
-        dctx.strokeStyle = 'rgba(230,237,243,0.045)';
+        dctx.strokeStyle = col('230,237,243',0.045);
         dctx.lineWidth = 1;
         dctx.stroke();
       }
@@ -1553,7 +1558,7 @@
         const a = netNodes[i], b = netNodes[j];
         const dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy);
         if (dist < 150){
-          dctx.strokeStyle = `rgba(79,214,199,${0.09*(1-dist/150)})`;
+          dctx.strokeStyle = col('79,214,199',0.09*(1-dist/150));
           dctx.lineWidth = 0.6;
           dctx.beginPath(); dctx.moveTo(a.x,a.y); dctx.lineTo(b.x,b.y); dctx.stroke();
         }
@@ -1562,7 +1567,7 @@
     netNodes.forEach(n => {
       dctx.beginPath();
       dctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
-      dctx.fillStyle = n.hue === 'accent' ? 'rgba(79,214,199,0.35)' : 'rgba(242,177,52,0.30)';
+      dctx.fillStyle = n.hue === 'accent' ? col('79,214,199',0.35) : col('242,177,52',0.30);
       dctx.fill();
     });
 
@@ -1571,7 +1576,7 @@
       netNodes.forEach(n => {
         const dx = mouseX-n.x, dy = mouseY-n.y, dist = Math.sqrt(dx*dx+dy*dy);
         if (dist < 170){
-          dctx.strokeStyle = `rgba(242,177,52,${0.24*(1-dist/170)})`;
+          dctx.strokeStyle = col('242,177,52',0.24*(1-dist/170));
           dctx.lineWidth = 0.9;
           dctx.beginPath(); dctx.moveTo(mouseX,mouseY); dctx.lineTo(n.x,n.y); dctx.stroke();
         }
@@ -1579,11 +1584,11 @@
       const cpulse = 3 + Math.sin(bioT/8)*1.2;
       dctx.beginPath();
       dctx.arc(mouseX, mouseY, cpulse, 0, Math.PI*2);
-      dctx.fillStyle = 'rgba(242,177,52,0.55)';
+      dctx.fillStyle = col('242,177,52',0.55);
       dctx.fill();
       dctx.beginPath();
       dctx.arc(mouseX, mouseY, cpulse+7, 0, Math.PI*2);
-      dctx.strokeStyle = 'rgba(242,177,52,0.28)';
+      dctx.strokeStyle = col('242,177,52',0.28);
       dctx.lineWidth = 1;
       dctx.stroke();
     }
@@ -1593,13 +1598,13 @@
     scatterClusters.forEach(p => {
       dctx.beginPath();
       dctx.arc(p.x - parallaxX*0.6, p.y - parallaxY*0.6, p.r, 0, Math.PI*2);
-      dctx.fillStyle = `rgba(${p.color},${0.3*pulse})`;
+      dctx.fillStyle = col(p.color,0.3*pulse);
       dctx.fill();
     });
 
     // -- Sequencing coverage track along the top edge --
     seqTrack.forEach(t => {
-      dctx.fillStyle = t.teal ? 'rgba(79,214,199,0.16)' : 'rgba(242,177,52,0.13)';
+      dctx.fillStyle = t.teal ? col('79,214,199',0.16) : col('242,177,52',0.13);
       dctx.fillRect(t.x, 0, 4, t.h);
     });
 
@@ -1611,7 +1616,7 @@
       if (r.alpha <= 0){ ripples.splice(i,1); continue; }
       dctx.beginPath();
       dctx.arc(r.x, r.y, r.r, 0, Math.PI*2);
-      dctx.strokeStyle = `rgba(79,214,199,${r.alpha})`;
+      dctx.strokeStyle = col('79,214,199',r.alpha);
       dctx.lineWidth = 1.4;
       dctx.stroke();
     }
@@ -1664,6 +1669,7 @@
     const root = document.documentElement;
     function apply(theme, save){
       if (theme === 'light') root.setAttribute('data-theme','light'); else root.removeAttribute('data-theme');
+      LIGHT = theme === 'light';
       btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
       if (meta) meta.setAttribute('content', theme === 'light' ? '#f6f8fb' : '#080b10');
       if (save) { try { localStorage.setItem('theme', theme); } catch(e){} }
