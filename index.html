@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="Cancer gene regulation, 3D genomics, cancer WGS/ecDNA and single-cell analysis at Karolinska Institutet.">
 <meta name="twitter:image" content="https://arjunbioinfo.github.io/og-card.jpg">
 <link rel="canonical" href="https://arjunbioinfo.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080b10'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='700' fill='%234fd6c7' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1016'/%3E%3Cg transform='translate%288 8%29'%3E%3Cpath d='M8 39V11L24 29 40 11V39' stroke='%23f2efe8' stroke-width='4' stroke-linejoin='round' fill='none'/%3E%3Cg fill='%23f2efe8'%3E%3Ccircle cx='8' cy='39' r='5.4'/%3E%3Ccircle cx='8' cy='11' r='5.4'/%3E%3Ccircle cx='40' cy='11' r='5.4'/%3E%3Ccircle cx='40' cy='39' r='5.4'/%3E%3C/g%3E%3Ccircle cx='24' cy='29' r='6.6' fill='%23f3b24c'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -102,7 +102,15 @@
     border-bottom:1px solid var(--border);
     transition:padding .3s ease;
   }
-  .logo{font-weight:700;font-size:19px;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;}
+  .logo{display:flex;align-items:center;gap:10px;color:var(--text);flex-shrink:0;}
+  .logo-mark{width:30px;height:30px;display:block;flex-shrink:0;}
+  .logo-node{fill:#f3b24c;}
+  html[data-theme="light"] .logo-node{fill:#e39a22;}
+  .logo-name{font-family:'Inter',sans-serif;font-weight:400;font-size:16.5px;letter-spacing:-.2px;white-space:nowrap;}
+  .logo-name b{font-weight:700;}
+  @media (max-width:1180px){ .logo-name{display:none;} }
+  @media (max-width:860px){ .logo-name{display:inline;font-size:15.5px;} }
+  @media (max-width:420px){ .logo-name{display:none;} }
   .logo .dot{color:var(--accent);}
   .nav-links{display:flex;gap:34px;list-style:none;}
   .nav-links a{
@@ -693,7 +701,10 @@
 <canvas id="dnaBg" class="bg-grid" aria-hidden="true"></canvas>
 
 <nav aria-label="Main">
-  <a href="#" class="logo" aria-label="Mallikarjuna Thippana — home">MT<span class="dot">.</span></a>
+  <a href="#" class="logo" aria-label="Mallikarjuna Thippana — home">
+    <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 39V11L24 29 40 11V39" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><g fill="currentColor"><circle cx="8" cy="39" r="4.600"/><circle cx="8" cy="11" r="4.600"/><circle cx="40" cy="11" r="4.600"/><circle cx="40" cy="39" r="4.600"/></g><circle class="logo-node" cx="24" cy="29" r="5.600"/></svg>
+    <span class="logo-name">Mallikarjuna <b>Thippana</b></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
