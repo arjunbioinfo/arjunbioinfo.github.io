@@ -567,7 +567,7 @@
   .kpi .k{font-size:12px;color:var(--text-dim);margin-top:4px;line-height:1.35;}
   /* CODE / SOFTWARE */
   .code-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  @media (min-width:961px){ .code-card.more{grid-column:span 2;} }
+  @media (min-width:621px){ .code-card.more{grid-column:span 2;} }
   .code-card{
     background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
     padding:24px 22px;display:flex;flex-direction:column;gap:12px;transition:all .25s ease;
@@ -1044,6 +1044,27 @@
         <p>Scanpy/scverse workflow from GEO accession or 10x file to clusters and markers: MAD-based QC, doublet removal, UMAP, Leiden — deterministic, with fixed seeds.</p>
         <div class="code-tags"><span>Python</span><span>Scanpy</span><span>scverse</span><span>CI</span></div>
         <div class="code-links"><a href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener">Repository →</a></div>
+      </article>
+      <article class="code-card">
+        <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="6" cy="7" r="2"/><circle cx="6" cy="17" r="2"/><circle cx="12" cy="12" r="2"/><path d="M15 12h6M18 9v6"/></svg> scrna-multidonor-pseudobulk</div>
+        <h3>Multi-donor scRNA-seq with pseudobulk DE</h3>
+        <p>Harmony integration and donor-level pseudobulk PyDESeq2 on public 8-donor PBMC data (Kang 2018), with a benchmark of naive single-cell vs pseudobulk false positives.</p>
+        <div class="code-tags"><span>Snakemake</span><span>Scanpy</span><span>PyDESeq2</span><span>CI</span></div>
+        <div class="code-links"><a href="https://github.com/arjunbioinfo/scrna-multidonor-pseudobulk" target="_blank" rel="noopener">Repository →</a></div>
+      </article>
+      <article class="code-card">
+        <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 5h4v14H3zM10 9h4v10h-4zM17 13h4v6h-4z"/></svg> cancer-cohort-wgcna-survival</div>
+        <h3>Cancer cohort WGCNA &amp; survival</h3>
+        <p>R/Bioconductor workflow on TCGA-CESC: limma differential expression, fgsea, signed WGCNA co-expression modules and Cox / Kaplan–Meier survival of module eigengenes and hub genes.</p>
+        <div class="code-tags"><span>R</span><span>Bioconductor</span><span>WGCNA</span><span>CI</span></div>
+        <div class="code-links"><a href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener">Repository →</a></div>
+      </article>
+      <article class="code-card">
+        <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg> multiomics-cancer-biomarker-ml</div>
+        <h3>Multi-omics machine learning benchmark</h3>
+        <p>Leak-free cross-validated comparison of RNA, copy-number and combined models on TCGA-LUSC, with SHAP feature attribution and out-of-fold Cox survival scoring.</p>
+        <div class="code-tags"><span>Python</span><span>scikit-learn</span><span>SHAP</span><span>CI</span></div>
+        <div class="code-links"><a href="https://github.com/arjunbioinfo/multiomics-cancer-biomarker-ml" target="_blank" rel="noopener">Repository →</a></div>
       </article>
       <article class="code-card">
         <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="M6 17c4 0 5-10 9-10 2 0 3 2 5 2"/></svg> efficiency-corrected-rt-qpcr</div>
