@@ -567,6 +567,7 @@
   .kpi .k{font-size:12px;color:var(--text-dim);margin-top:4px;line-height:1.35;}
   /* CODE / SOFTWARE */
   .code-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (min-width:961px){ .code-card.more{grid-column:span 2;} }
   .code-card{
     background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
     padding:24px 22px;display:flex;flex-direction:column;gap:12px;transition:all .25s ease;
@@ -1019,6 +1020,23 @@
         <p>Version-pinned wrapper around nf-core/circdna with per-branch parameter files for AmpliconArchitect and Circle-Map detection.</p>
         <div class="code-tags"><span>Nextflow</span><span>nf-core</span><span>AmpliconSuite</span><span>CI</span></div>
         <div class="code-links"><a href="https://github.com/arjunbioinfo/ecDNA-WGS-circdna" target="_blank" rel="noopener">Repository →</a></div>
+      </article>
+      <article class="code-card">
+        <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9"/></svg> ampliconsuite-2026-reproducibility</div>
+        <h3>Reproducing an ecDNA classifier benchmark</h3>
+        <p>Independent reproduction of the AmpliconClassifier FISH validation (Luebeck et al., <i>Nature Methods</i> 2026): rebuilds Figure 1d–e from the deposited data across 175 gene probes in 72 cell lines, with a probe-level check of the scoring.</p>
+        <div class="code-tags"><span>Python</span><span>ecDNA</span><span>Reproducibility</span></div>
+        <div class="code-links">
+          <a href="https://github.com/arjunbioinfo/ampliconsuite-2026-reproducibility" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://doi.org/10.1038/s41592-026-03264-x" target="_blank" rel="noopener">Original paper</a>
+        </div>
+      </article>
+      <article class="code-card">
+        <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 18h18"/><path d="M5 18c0-6 3.5-9 7-9s7 3 7 9"/><path d="M9 18c0-3 1.4-4.5 3-4.5s3 1.5 3 4.5"/></svg> enhancer-gene-atac-rna-ctcf</div>
+        <h3>Enhancer–gene links with CTCF occupancy</h3>
+        <p>Snakemake workflow integrating ENCODE ATAC-seq, RNA-seq and CTCF ChIP-seq to link distal enhancers to genes, test CTCF occupancy with peak-level statistics and rank concordant candidates.</p>
+        <div class="code-tags"><span>Snakemake</span><span>Python</span><span>ENCODE</span><span>CI</span></div>
+        <div class="code-links"><a href="https://github.com/arjunbioinfo/enhancer-gene-atac-rna-ctcf" target="_blank" rel="noopener">Repository →</a></div>
       </article>
       <article class="code-card">
         <div class="repo"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="7" cy="7" r="2"/><circle cx="17" cy="8" r="2"/><circle cx="9" cy="17" r="2"/><circle cx="16" cy="16" r="2"/></svg> scRNA-seq-reproducible</div>
