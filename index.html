@@ -331,6 +331,9 @@
     transition:all .2s ease;
   }
   .chip:hover{color:var(--accent);border-color:var(--accent);}
+  .chip.pub{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);text-decoration:none;}
+  .chip.pub:hover{color:var(--text);}
+  .pub-key{display:block;margin-top:6px;font-size:13px;color:var(--accent);}
 
   /* AWARDS + EDUCATION */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
@@ -980,16 +983,16 @@
     </article>
     <div class="work-grid">
       <article class="work-card">
-        <figure><img src="assets/work-cgr.png" alt="Frequency chaos-game representation heatmap of a gene sequence and its cross multifractal spectrum f(alpha)" width="1000" height="418" loading="lazy"></figure>
-        <div class="cap"><b>Chaos-game + multifractal prioritisation</b><span>fCGR matrix of a candidate gene (left) and its cross-multifractal spectrum against a known cancer gene (right).</span><a href="https://github.com/arjunbioinfo/cgr-mfxdfa-gene-prioritization" target="_blank" rel="noopener">View code →</a></div>
+        <figure><img src="assets/work-endometrium-snrna.png" alt="Harmony-integrated UMAP of endometrial nuclei by cell type and by cycle preparation, and cell-type composition per donor" width="1400" height="455" loading="lazy"></figure>
+        <div class="cap"><b>Endometrium snRNA-seq, donor-level pseudobulk</b><span>Public snRNA-seq data (16 donors, 93,064 nuclei), programmed vs natural cycle. Glandular epithelium makes up a larger share of nuclei in programmed cycles (44% vs 22%), and 79% of glandular DEGs hold when any single donor is left out.</span><a href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener">View code →</a></div>
       </article>
       <article class="work-card">
-        <figure><img src="assets/work-moi.png" alt="Euclidean distance matrix between protein descriptors and an average-linkage dendrogram" width="1000" height="411" loading="lazy"></figure>
-        <div class="cap"><b>Moment-of-inertia tensor descriptors</b><span>Distance matrix between alignment-free protein descriptors (left) and the resulting dendrogram used to rank candidates (right).</span><a href="https://github.com/arjunbioinfo/moment-of-inertia-tensor-gene-prioritization" target="_blank" rel="noopener">View code →</a></div>
+        <figure><img src="assets/work-ecdna-validation.png" alt="Confusion matrix of ecDNA classifier calls against FISH and precision and recall under two scoring rules" width="1400" height="640" loading="lazy"></figure>
+        <div class="cap"><b>Reproducing an ecDNA classifier validation</b><span>Independent rebuild of the AmpliconClassifier FISH comparison (<i>Nature Methods</i> 2026) from deposited data: 175 gene probes in 72 cell lines, 91.4% precision and 94.6% recall.</span><a href="https://github.com/arjunbioinfo/ampliconsuite-2026-reproducibility" target="_blank" rel="noopener">View code →</a></div>
       </article>
       <article class="work-card">
-        <figure><img src="assets/work-scrna-umap.png" alt="UMAP of peripheral blood mononuclear cells coloured by Leiden cluster" width="535" height="429" loading="lazy"></figure>
-        <div class="cap"><b>Reproducible scRNA-seq pipeline</b><span>UMAP of the bundled 3k-PBMC example: 2,382 cells after QC and doublet removal, 7 Leiden clusters resolving T, NK, B, monocyte and dendritic cells.</span><a href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener">View code →</a></div>
+        <figure><img src="assets/work-wgcna-survival.png" alt="Forest plot of Cox hazard ratios for WGCNA module eigengenes and Kaplan-Meier curves for the yellow module" width="1400" height="583" loading="lazy"></figure>
+        <div class="cap"><b>Co-expression modules and survival</b><span>TCGA cervical cancer cohort: of five WGCNA modules, only the yellow module is linked to overall survival (Cox HR 0.71, FDR 0.017; Kaplan–Meier log-rank p = 0.0004).</span><a href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener">View code →</a></div>
       </article>
     </div>
     <h3 class="sub-h work">Repositories</h3>
@@ -1218,42 +1221,42 @@
   <div class="wrap reveal">
     <div class="section-tag">Technical Expertise</div>
     <h2 class="section-title">Tools &amp; Technologies</h2>
-    <p class="section-lead">The computational stack behind the research above.</p>
+    <p class="section-lead">The computational stack behind the research above. <span class="pub-key">Highlighted tools link to public, tested code on GitHub.</span></p>
     <div class="skills-grid">
       <div class="skill-cat">
         <h4>Epigenomics &amp; Gene Regulation</h4>
         <div class="chip-row">
-          <span class="chip">GRO-seq</span><span class="chip">ATAC-seq</span><span class="chip">CUT&amp;RUN</span><span class="chip">ChIP-seq</span><span class="chip">4C-seq</span><span class="chip">MACS2</span><span class="chip">HOMER</span><span class="chip">deepTools</span><span class="chip">Bedtools</span><span class="chip">IGV</span>
+          <span class="chip">GRO-seq</span><a class="chip pub" href="https://github.com/arjunbioinfo/enhancer-gene-atac-rna-ctcf" target="_blank" rel="noopener" title="Public code: enhancer-gene-atac-rna-ctcf">ATAC-seq</a><span class="chip">CUT&amp;RUN</span><a class="chip pub" href="https://github.com/arjunbioinfo/enhancer-gene-atac-rna-ctcf" target="_blank" rel="noopener" title="Public code: enhancer-gene-atac-rna-ctcf">ChIP-seq</a><span class="chip">4C-seq</span><a class="chip pub" href="https://github.com/arjunbioinfo/enhancer-gene-atac-rna-ctcf" target="_blank" rel="noopener" title="Public code: enhancer-gene-atac-rna-ctcf">ENCODE</a><span class="chip">MACS2</span><span class="chip">HOMER</span><span class="chip">deepTools</span><span class="chip">Bedtools</span>
         </div>
       </div>
       <div class="skill-cat">
         <h4>Cancer Genomics &amp; WGS</h4>
         <div class="chip-row">
-          <span class="chip">AmpliconArchitect</span><span class="chip">AmpliconClassifier</span><span class="chip">nf-core/circdna</span><span class="chip">GATK</span><span class="chip">bcftools</span><span class="chip">Samtools</span><span class="chip">ANNOVAR</span><span class="chip">TCGA</span><span class="chip">COSMIC</span><span class="chip">cBioPortal</span>
+          <a class="chip pub" href="https://github.com/arjunbioinfo/ecDNA-WGS-circdna" target="_blank" rel="noopener" title="Public code: ecDNA-WGS-circdna">AmpliconArchitect</a><a class="chip pub" href="https://github.com/arjunbioinfo/ampliconsuite-2026-reproducibility" target="_blank" rel="noopener" title="Public code: ampliconsuite-2026-reproducibility">AmpliconClassifier</a><a class="chip pub" href="https://github.com/arjunbioinfo/ecDNA-WGS-circdna" target="_blank" rel="noopener" title="Public code: ecDNA-WGS-circdna">nf-core/circdna</a><span class="chip">GATK</span><span class="chip">bcftools</span><span class="chip">Samtools</span><span class="chip">ANNOVAR</span><a class="chip pub" href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener" title="Public code: cancer-cohort-wgcna-survival">TCGA</a><span class="chip">COSMIC</span><span class="chip">cBioPortal</span>
         </div>
       </div>
       <div class="skill-cat">
         <h4>Transcriptomics &amp; Single-Cell</h4>
         <div class="chip-row">
-          <span class="chip">STAR</span><span class="chip">Salmon</span><span class="chip">DESeq2</span><span class="chip">edgeR</span><span class="chip">limma</span><span class="chip">Scanpy</span><span class="chip">Seurat</span><span class="chip">Harmony</span><span class="chip">Cell Ranger</span><span class="chip">SoupX</span><span class="chip">Scrublet</span><span class="chip">DoubletFinder</span>
+          <span class="chip">STAR</span><span class="chip">Salmon</span><span class="chip">DESeq2</span><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">PyDESeq2</a><span class="chip">edgeR</span><a class="chip pub" href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener" title="Public code: cancer-cohort-wgcna-survival">limma</a><a class="chip pub" href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener" title="Public code: scRNA-seq-reproducible">Scanpy</a><span class="chip">Seurat</span><a class="chip pub" href="https://github.com/arjunbioinfo/scrna-multidonor-pseudobulk" target="_blank" rel="noopener" title="Public code: scrna-multidonor-pseudobulk">Harmony</a><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">decoupler</a><span class="chip">Cell Ranger</span><span class="chip">SoupX</span><a class="chip pub" href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener" title="Public code: scRNA-seq-reproducible">Scrublet</a><span class="chip">DoubletFinder</span><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">CELLxGENE</a><a class="chip pub" href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener" title="Public code: scRNA-seq-reproducible">GEO</a>
         </div>
       </div>
       <div class="skill-cat">
         <h4>Statistics, Networks &amp; ML</h4>
         <div class="chip-row">
-          <span class="chip">WGCNA</span><span class="chip">PCA / UMAP</span><span class="chip">Leiden</span><span class="chip">MOFA+</span><span class="chip">pySCENIC</span><span class="chip">scikit-learn</span><span class="chip">SHAP</span><span class="chip">Survival analysis</span><span class="chip">Multiple testing</span><span class="chip">GSEA</span>
+          <a class="chip pub" href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener" title="Public code: cancer-cohort-wgcna-survival">WGCNA</a><span class="chip">PCA / UMAP</span><a class="chip pub" href="https://github.com/arjunbioinfo/scRNA-seq-reproducible" target="_blank" rel="noopener" title="Public code: scRNA-seq-reproducible">Leiden</a><span class="chip">MOFA+</span><span class="chip">pySCENIC</span><a class="chip pub" href="https://github.com/arjunbioinfo/multiomics-cancer-biomarker-ml" target="_blank" rel="noopener" title="Public code: multiomics-cancer-biomarker-ml">scikit-learn</a><a class="chip pub" href="https://github.com/arjunbioinfo/multiomics-cancer-biomarker-ml" target="_blank" rel="noopener" title="Public code: multiomics-cancer-biomarker-ml">SHAP</a><a class="chip pub" href="https://github.com/arjunbioinfo/multiomics-cancer-biomarker-ml" target="_blank" rel="noopener" title="Public code: multiomics-cancer-biomarker-ml">Cross-validation</a><a class="chip pub" href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener" title="Public code: cancer-cohort-wgcna-survival">Cox / Kaplan–Meier</a><a class="chip pub" href="https://github.com/arjunbioinfo/cancer-cohort-wgcna-survival" target="_blank" rel="noopener" title="Public code: cancer-cohort-wgcna-survival">fgsea</a><span class="chip">Multiple testing</span>
         </div>
       </div>
       <div class="skill-cat">
         <h4>Languages &amp; Libraries</h4>
         <div class="chip-row">
-          <span class="chip">Python</span><span class="chip">R / Bioconductor</span><span class="chip">Bash</span><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">matplotlib</span><span class="chip">ggplot2</span>
+          <span class="chip">Python</span><span class="chip">R / Bioconductor</span><span class="chip">Bash</span><span class="chip">matplotlib</span><span class="chip">ggplot2</span>
         </div>
       </div>
       <div class="skill-cat">
         <h4>Reproducibility &amp; HPC</h4>
         <div class="chip-row">
-          <span class="chip">Nextflow / nf-core</span><span class="chip">Snakemake</span><span class="chip">Git / GitHub Actions</span><span class="chip">Docker</span><span class="chip">Apptainer</span><span class="chip">SLURM</span><span class="chip">Linux HPC</span><span class="chip">Jupyter</span><span class="chip">Zenodo</span>
+          <a class="chip pub" href="https://github.com/arjunbioinfo/ecDNA-WGS-circdna" target="_blank" rel="noopener" title="Public code: ecDNA-WGS-circdna">Nextflow / nf-core</a><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">Snakemake</a><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">Git / GitHub Actions</a><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">Docker</a><span class="chip">conda</span><a class="chip pub" href="https://github.com/arjunbioinfo/endometrium-snrna-pseudobulk" target="_blank" rel="noopener" title="Public code: endometrium-snrna-pseudobulk">pytest / testthat</a><span class="chip">Apptainer</span><span class="chip">SLURM</span><span class="chip">Linux HPC</span><span class="chip">Zenodo</span>
         </div>
       </div>
     </div>
